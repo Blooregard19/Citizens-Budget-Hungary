@@ -66,7 +66,7 @@ d3.csv("flare.csv", type, function(error, data) {
 
   treemap(root);
 
-  d3.select("body")
+  var cb = d3.select("body")
     .selectAll(".node")
     .data(root.leaves())
     .enter().append("div")
@@ -94,7 +94,7 @@ function type(d) {
 d3.select("p")
     .on("click", function() {
         //Do something  on click
-        d3.select("div")
+        cb.select("div")
           .transition
           .style("left", "100px")
     });
