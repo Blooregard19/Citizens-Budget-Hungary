@@ -27,6 +27,7 @@ body {
 
 </style>
 <body>
+  <p>Click on this text to update the chart with new data values (once).</p>
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script>
 
@@ -80,4 +81,13 @@ function type(d) {
   return d;
 }
 
+// Transition the rects
+d3.select("p")
+    .on("click", function() {
+        //Do something  on click
+        d3.select("div")
+          .transition
+          .style("left", 100px)
+    });
+  
 </script>
