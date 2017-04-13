@@ -29,6 +29,12 @@ http://bl.ocks.org/d3noob/8dc93bce7e7200ab487d
 esetleg json-ból
 https://www.dashingd3js.com/using-json-to-simplify-code
 
+Kiválasztás, kivéve egy bizonyos classot
+http://stackoverflow.com/questions/12321352/equivalent-of-jquerys-not-selector-in-d3-js
+Több class alapján kiválasztani a megfelelő elemeket
+http://stackoverflow.com/questions/17435838/how-to-use-d3-selectall-with-multiple-class-names
+http://stackoverflow.com/questions/34783926/can-i-call-indexof-within-a-d3-selection
+
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
 2. írja ki táblázatban a treemap mellé a megjelenített funkciókat
