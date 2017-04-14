@@ -71,7 +71,7 @@ var treemap = d3.treemap()
 
 d3.request("2016_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
-	.response(function(xfr) { return ssv.parse(xhr.responseText)})
+	.response(function(xhr) { return ssv.parse(xhr.responseText)})
 	.get(function(data) {
   console.log(data[1]);
 
