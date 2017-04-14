@@ -1987,7 +1987,7 @@ F13;F13.b;42;33;05;00;00;00;00 ;      Garantiqa Hitelgarancia Zrt. garanciaügyl
 F10;F10;42;33;07;00;00;00;00 ;      Agrár-Vállalkozási Hitelgarancia Alapítvány garanciaügyleteiből eredő fizetési kötelezettség;1 700,0;;;208471
 F06;F06.f;42;33;10;00;00;00;00 ;      A közszférában dolgozók lakáshiteleihez vállalt kezességből eredő fizetési kötelezettség;150,0;;;256067
 F10;F10;42;33;13;00;00;00;00 ;      Agrárhitelekhez vállalt kezességekből eredő fizetési kötelezettség;10,0;;;257934
-F06;F06.f;42;33;14;00;00;00;00 ;"      A ""fészekrakó"" programhoz vállalt kezességből eredő fizetési kötelezettség";2 500,0;;;265834
+F06;F06.f;42;33;14;00;00;00;00 ;      A fészekrakó programhoz vállalt kezességből eredő fizetési kötelezettség;2 500,0;;;265834
 F13;F13.b;42;33;15;00;00;00;00 ;      MFB Zrt. által nyújtott hitelekből és vállalt garanciaügyletekből eredő fizetési kötelezettség;383,3;;;254012
 F06;F06.f;42;33;16;00;00;00;00 ;      Áthidaló hitelprogramra vállalt kezességekből eredő fizetési kötelezettség;30,0;;;294179
 F01;F01.b;42;33;17;00;00;00;00 ;      Takarékbetétek visszafizetéséért vállalt állami kezességből eredő fizetési kötelezettség;300,0;;;300980
