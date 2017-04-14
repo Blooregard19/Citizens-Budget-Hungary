@@ -8,12 +8,12 @@
 <style>
 
 
-div.fejlec {
+.fejlec {
   font: 10px sans-serif;
   position: static;
 }
 
-div.csempe {
+.csempe {
   font: 10px sans-serif;
   position: relative;
   width: 960px;
@@ -76,7 +76,7 @@ d3.csv("flare.csv", type, function(error, data) {
 
   treemap(root);
 
-  var cb = d3.select("csempe")
+  var cb = d3.select(".csempe")
     .selectAll(".node")
     .data(root.leaves())
     .enter().append("div")
