@@ -1219,13 +1219,13 @@ F01;F01.a;19;02;09;07;00;00;00 ;         Közigazgatás- és Közszolgáltatás 
 F06;F06.g;19;02;09;08;00;00;00 ;         Rászoruló Személyeket Támogató OP (RSZTOP);3 431,2;2 916,5;514,7;348117
 F16;F16;19;02;10;00;00;00;00 ;      Európai Területi Együttműködés (2014-2020);;;;342939
 F13;F13.a;19;02;10;06;00;00;00 ;         ETE határmenti programok 2014-2020;;;;348162
-F13;F13.a;19;02;10;06;01;00;00 ;"            	SKHU ETE program";3 717,4;;3 717,4;351906
-F13;F13.a;19;02;10;06;02;00;00 ;"            	ROHU ETE program";4 114,1;;4 114,1;351917
-F13;F13.a;19;02;10;06;03;00;00 ;"            	HU-SER IPA program";5 683,6;3 580,2;2 103,4;351928
-F13;F13.a;19;02;10;06;04;00;00 ;"            	HU-CRO ETE program";2 031,4;940,7;1 090,7;351939
-F13;F13.a;19;02;10;06;05;00;00 ;"            	AU-HU ETE program";507,6;;507,6;351940
-F13;F13.a;19;02;10;06;06;00;00 ;"            	SI-HU ETE program";181,7;;181,7;351951
-F13;F13.a;19;02;10;06;07;00;00 ;"            	ENI programok";8,0;;8,0;351962
+F13;F13.a;19;02;10;06;01;00;00 ;            	SKHU ETE program;3 717,4;;3 717,4;351906
+F13;F13.a;19;02;10;06;02;00;00 ;            	ROHU ETE program;4 114,1;;4 114,1;351917
+F13;F13.a;19;02;10;06;03;00;00 ;            	HU-SER IPA program;5 683,6;3 580,2;2 103,4;351928
+F13;F13.a;19;02;10;06;04;00;00 ;            	HU-CRO ETE program;2 031,4;940,7;1 090,7;351939
+F13;F13.a;19;02;10;06;05;00;00 ;            	AU-HU ETE program;507,6;;507,6;351940
+F13;F13.a;19;02;10;06;06;00;00 ;            	SI-HU ETE program;181,7;;181,7;351951
+F13;F13.a;19;02;10;06;07;00;00 ;            	ENI programok;8,0;;8,0;351962
 F16;F16;19;02;11;00;00;00;00 ;      Vidékfejlesztési és halászati programok;;;;271023
 F10;F10;19;02;11;03;00;00;00 ;         Halászati Operatív Program;;;;277501
 F10;F10;19;02;11;03;01;00;00 ;            Akvakultúra, belvízi halászat és a halászati és akvakultúra termékek feldolgozása és forgalmazása (II. tengely);402,1;264,6;137,5;277512
@@ -1578,7 +1578,7 @@ F05;F05.e;20;20;30;24;05;00;00 ;            Magyar Gyermekonkológiai Hálózat;
 F05;F05.e;20;20;30;24;06;00;00 ;            Daganatos Betegek Rehabilitációs Lelki Otthona;20,0;;20,0;331939
 F08;F08.f;20;20;30;24;07;00;00 ;            Rákbetegek Országos Szövetsége;20,0;;20,0;247223
 F16;F16;20;20;30;25;00;00;00 ;         Szociális társadalmi, civil és non-profit szervezetek;;;;295313
-F08;F08.f;20;20;30;25;05;00;00 ;"            Fogyatékos személyek érdekvédelmi szervezetei; közösségi, szolidaritási és esélyteremtési programok támogatása";149,5;;149,5;233628
+F08;F08.f;20;20;30;25;05;00;00 ;            Fogyatékos személyek érdekvédelmi szervezetei; közösségi, szolidaritási és esélyteremtési programok támogatása;149,5;;149,5;233628
 F08;F08.f;20;20;30;25;06;00;00 ;            Értelmi Fogyatékossággal Élők és Segítőik Országos Érdekvédelmi Szövetsége;143,3;;143,3;000330
 F08;F08.f;20;20;30;25;07;00;00 ;            Siketek és Nagyothallók Országos Szövetsége;181,8;;181,8;245545
 F08;F08.f;20;20;30;25;08;00;00 ;            Mozgáskorlátozottak Egyesületeinek Országos Szövetsége;176,4;;176,4;000352
