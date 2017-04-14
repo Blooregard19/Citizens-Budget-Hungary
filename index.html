@@ -88,7 +88,7 @@ console.log(data[5]);
 console.log(nested_data);
 
   var root = d3.hierarchy(nested_data)
-      .sum(function(d) { return d.value; });
+      .sum(function(d) { return d.values; });
       //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 console.log(root);
   treemap(root);
