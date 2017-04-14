@@ -89,7 +89,7 @@ console.log(nested_data);
   var root = d3.hierarchy(nested_data)
       .sum(function(d) { return d.value; });
       //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
-
+console.log(root);
   treemap(root);
 
   var cb = d3.select(".csempe")
