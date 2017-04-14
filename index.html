@@ -81,6 +81,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 console.log(data[5]);
   var nested_data = d3.nest()
   	.key(function(d) { return d.Fofunkcio; })
+  	.key(function(d) { return d.Funkcio; })
   	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.Kiadas); }) })
   	.entries(data);
 
