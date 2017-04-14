@@ -72,7 +72,7 @@ var treemap = d3.treemap()
 d3.request("2016_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
 	.response(function(xfr) { return ssv.parse(xhr.responseText)})
-	.get(function(data)) {
+	.get(function(data) {
   console.log(data[1]);
 
   var nested_data = d3.nest()
