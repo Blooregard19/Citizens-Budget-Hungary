@@ -73,17 +73,19 @@ d3.request("2016_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
 	.get(function(data) {
-  console.log(data[1]);
 
 data.forEach(function(d) {
 d.Kiadas = +d.Kiadas;
 });
-	
+
+console.log(data[5]);
   var nested_data = d3.nest()
   	.key(function(d) { return d.Fofunkcio; })
   	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.Kiadas); }) })
   	.entries(data);
-	
+
+console.log(nested_data);
+
   var root = d3.hierarchy(nested_data)
       .sum(function(d) { return d.value; });
       //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
