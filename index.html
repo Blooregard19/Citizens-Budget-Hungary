@@ -82,12 +82,11 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   	.key(function(d) { return d.Fo; })
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
-  	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.Kiadas); }) })
-  	.entries(data);
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
 console.log(nested_data);
 
-  var root = d3.hierarchy(nested_data, function children(d) {return d.values; })
+  var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; });
       //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 console.log(root);
