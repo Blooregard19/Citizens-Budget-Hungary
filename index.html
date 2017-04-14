@@ -75,7 +75,7 @@ d3.request("2016_tv_01_mell_COFOG.csv")
 	.get(function(data) {
 
 data.forEach(function(d) {
-d.Kiadas = +d.Kiadas;
+d.Kiadas = +d.Kiadas.replace(",", ".");
 });
 
 console.log(data[5]);
