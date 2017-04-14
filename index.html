@@ -55,8 +55,7 @@ var width = 960,
 
 var format = d3.format(",d");
 
-var color = d3.scaleOrdinal()
-    .range(d3.schemeCategory10
+var color = d3.scaleOrdinal(d3.schemeCategory10
         .map(function(c) { c = d3.rgb(c); c.opacity = 0.6; return c; }));
 
 //var stratify = d3.stratify()
