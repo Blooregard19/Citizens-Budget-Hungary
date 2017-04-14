@@ -75,7 +75,7 @@ d3.csv("2016_tv_01_mell_COFOG.csv", type, function(error, data) {
   	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.time); }) })
   	.entries(data);
 	
-  var root = stratify(nested_data)
+  var root = d3.stratify(nested_data)
       .sum(function(d) { return d.value; })
       .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 
