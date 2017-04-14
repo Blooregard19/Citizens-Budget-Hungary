@@ -67,10 +67,15 @@ var treemap = d3.treemap()
     .padding(1)
     .round(true);
 
-d3.csv("flare.csv", type, function(error, data) {
+d3.csv("2016_tv_01_mell_COFOG.csv", type, function(error, data) {
   if (error) throw error;
 
-  var root = stratify(data)
+  var nested_data = d3.nest()
+  	.key(funcion(d) {return d.Fofunkcio})
+  	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.time);}) })
+  	.entries(data);
+	
+  var root = stratify(nested_data)
       .sum(function(d) { return d.value; })
       .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 
@@ -81,15 +86,15 @@ d3.csv("flare.csv", type, function(error, data) {
     .data(root.leaves())
     .enter().append("div")
       .attr("class", "node")
-      .attr("title", function(d) { return d.id + "\n" + format(d.value); })
+      .attr("title", function(d) { return d.Fofunkcio; })
       .style("left", function(d) { return d.x0 + "px"; })
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
-      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.id); })
+      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.Fofunkcio); })
     .append("div")
       .attr("class", "node-label")
-      .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1).split(/(?=[A-Z][^A-Z])/g).join("\n"); })
+      .text(function(d) { return d.Fofunkcio; })
     .append("div")
       .attr("class", "node-value")
       .text(function(d) { return format(d.value); });
