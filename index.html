@@ -78,7 +78,6 @@ data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
 });
 
-console.log(data[5]);
   var nested_data = d3.nest()
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
@@ -91,8 +90,8 @@ console.log(nested_data);
       .sum(function(d) { return d.value; });
       //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
 console.log(root);
-  treemap(root);
-
+ var abra = treemap(root);
+console.log(abra);
   var cb = d3.select(".csempe")
     .selectAll(".node")
     .data(root.leaves())
