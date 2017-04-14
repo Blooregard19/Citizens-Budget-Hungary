@@ -75,6 +75,10 @@ d3.request("2016_tv_01_mell_COFOG.csv")
 	.get(function(data) {
   console.log(data[1]);
 
+data.foreach(function(d) {
+d.Kiadas = +d.Kiadas;
+});
+	
   var nested_data = d3.nest()
   	.key(function(d) { return d.Fofunkcio; })
   	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.Kiadas); }) })
