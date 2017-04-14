@@ -84,14 +84,14 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
-console.log(nested_data);
+//console.log(nested_data);
 
   var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; });
       //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
-console.log(root);
+//console.log(root);
  var abra = treemap(root);
-console.log(abra);
+//console.log(abra);
   var cb = d3.select(".csempe")
     .selectAll(".node")
     .data(root.leaves())
@@ -105,7 +105,7 @@ console.log(abra);
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.key); })
     .append("div")
       .attr("class", "node-label")
-      .text(function(d) { return d.key; })
+      .text(function(d) { return d.data.key; })
     .append("div")
       .attr("class", "node-value")
       .text(function(d) { return format(d.value); });
