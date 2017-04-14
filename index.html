@@ -71,8 +71,8 @@ d3.csv("2016_tv_01_mell_COFOG.csv", type, function(error, data) {
   if (error) throw error;
 
   var nested_data = d3.nest()
-  	.key(funcion(d) {return d.Fofunkcio})
-  	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.time);}) })
+  	.key(funcion(d) {return d.Fofunkcio; })
+  	.rollup(function(leaves) {return d3.sum(leaves, function(d) {return parseFloat(d.time); }) })
   	.entries(data);
 	
   var root = stratify(nested_data)
