@@ -133,7 +133,7 @@ console.log(root.children);
   	.data(root.children)
   	.enter().append("tr");
   var td = tr.selectAll("td")
-  	.data(function(d) { return d;})
+  	.data(function(d) { return d.data.key;})
   	.enter().append("td")
   	.text(function(d) { return d.data.key;});
 
