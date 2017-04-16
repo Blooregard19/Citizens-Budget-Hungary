@@ -87,7 +87,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 
   var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; });
-      //.sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+      .sort(function(a, b) { return d3.ascending(a.key, b.key); });
 //console.log(root);
  var abra = treemap(root);
 //console.log(abra);
