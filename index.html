@@ -98,8 +98,8 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 
   var nested_data = d3.nest()
   	.key(function(d) { return d.Fo; })
-  	.key(function(d) { return d.Fofunkcio; })
-  	.key(function(d) { return d.Funkcio; })
+  	.key(function(d) { return d.Fejezet; })
+  	.key(function(d) { return d.Cim; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
 //console.log(nested_data);
