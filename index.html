@@ -145,9 +145,9 @@ console.log(abra.children);
   	.data(abra.children)
   	.enter().append("tr");
   var td = tr.selectAll("td")
-  	.data(function(d) { return d.data;})
+  	.data(function(d) { return d.data.key;})
   	.enter().append("td")
-  	.text(function(d) { return d.data.key;});
+  	.text(function(d) { return d;});
 
 });
 
