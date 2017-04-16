@@ -107,7 +107,7 @@ console.log(root);
       .text(function(d) { return d.data.key; })
     .append("div")
       .attr("class", "node-value")
-      .text(function(d) { return format(d.value); });
+      .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
 });
 
 function type(d) {
