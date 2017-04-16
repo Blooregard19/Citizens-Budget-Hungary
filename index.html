@@ -144,7 +144,7 @@ console.log(abra.children);
   var tr = tabla.selectAll("tr")
   	.data(abra.children)
   	.enter().append("tr");
-  var td = tr.selectAll("td")
+  var td = tr.select("td")
   	.data(function(d) { return d.data.key;})
   	.enter().append("td")
   	.text(function(d) { return d;});
