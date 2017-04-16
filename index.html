@@ -139,7 +139,7 @@ console.log(abra.children.children);
   var td = tr.selectAll("td")
   	.data(function(d) { return d;})
   	.enter().append("td")
-  	.text(function(d) { return d.key;});
+  	.text(function(d) { return d.data.key;});
 
 });
 
