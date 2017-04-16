@@ -12,12 +12,20 @@
   font: 10px sans-serif;
   position: static;
 }
-
-.csempe {
+#main {
+  height: 1060px;	
+}
+#oldal {
+ position: absolute;
+ top: 0;
+ right: 0;
+ width: 140px; 
+}
+#csempe {
   font: 10px sans-serif;
   position: relative;
-  width: 960px;
-  height: 1060px;	
+  top: 0;
+  left: 0;	
 }
 
 .node {
@@ -45,7 +53,12 @@
 <div class = "fejlec">
 	<p>Click on this text to update the chart with new data values (once).</p>
 </div>
-<div class = "csempe">
+<div id = "main">
+<div id = "csempe">
+</div>
+<div id = "oldal">
+</div>
+
 </div>
 
 <script type="text/javascript">
