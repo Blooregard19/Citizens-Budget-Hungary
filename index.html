@@ -110,7 +110,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
-console.log(root.children);
+console.log(abra.children);
  var abra = treemap(root);
 console.log(abra.children.children);
   var cb = d3.select("#csempe")
