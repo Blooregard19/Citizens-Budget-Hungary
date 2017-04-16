@@ -109,7 +109,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 console.log(root);
  var abra = treemap(root);
 //console.log(abra);
-  var cb = d3.select(".csempe")
+  var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
     .enter().append("div")
