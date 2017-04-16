@@ -69,8 +69,8 @@
 
 <script type="text/javascript">
 
-var width = 960,
-    height = 1060;
+var width = d3.select("#csempe").node().getBoundingClientRect().width,
+    height = d3.select("#csempe").node().getBoundingClientRect().height;
 
 var format = d3.format(",d");
 
