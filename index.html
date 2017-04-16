@@ -51,7 +51,15 @@
   font-size: 9px;
   margin-top: 1px;
 }
-
+table {
+  position: absolute;
+  margin: 10px;
+  font-size: 24px;
+}
+td {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
 </style>
 </head>
 
@@ -113,7 +121,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 
  var abra = treemap(root);
 console.log(abra.children);
-console.log(abra.children.children);
+console.log(abra.children.data.key);
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
