@@ -55,7 +55,7 @@ var width = 960,
 
 var format = d3.format(",d");
 
-var color = d3.scaleOrdinal(d3.schemeCategory10
+var color = d3.scaleOrdinal(d3.schemeCategory20
         .map(function(c) { c = d3.rgb(c); c.opacity = 0.6; return c; }));
 
 //var stratify = d3.stratify()
@@ -83,7 +83,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
-console.log(nested_data);
+//console.log(nested_data);
 
   var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
@@ -101,7 +101,7 @@ console.log(root);
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
-      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
+      .style("background", function(d) { while (d.depth > 1) return color(d.data.key); return color(d.data.key); })
     .append("div")
       .attr("class", "node-label")
       .text(function(d) { return d.data.key; })
