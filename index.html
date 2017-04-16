@@ -121,7 +121,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 
  var abra = treemap(root);
 console.log(abra.children);
-//console.log(abra.children.data.key);
+console.log(abra.children.data.key);
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
@@ -144,10 +144,10 @@ console.log(abra.children);
   var tr = tabla.selectAll("tr")
   	.data(abra.children)
   	.enter().append("tr");
-  var td = tr.select("td")
+  var td = tr.selectAll("td")
   	.data(function(d) { return d.data.key;})
   	.enter().append("td")
-  	.text(function(d) { return d;});
+  	.text(function(d) { return d.data.key;});
 
 });
 
