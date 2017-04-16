@@ -127,6 +127,16 @@ console.log(root);
     .append("div")
       .attr("class", "node-value")
       .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
+
+  var table = d3.select("#oldal").append("table");
+  var tr = table.selectAll("tr")
+  	.data(nested_data)
+  	.enter.append("tr");
+  var td = tr.selectAll("td")
+  	.data(function(d) { return d;})
+  	.enter.append("td")
+  	.text(function(d) { return d.key;});
+
 });
 
 function type(d) {
