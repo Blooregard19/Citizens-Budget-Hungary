@@ -57,7 +57,10 @@
 
 <body>
 <div class = "fejlec">
-	<p>Click on this text to update the chart with new data values (once).</p>
+<form>
+  <label input type = "radio" name = "tipus" value = "funk" checked>Funkcionális</label>
+  <label input type = "radio" name = "tipus" value = "intezm">Intézményi</label>
+</form>
 </div>
 <div id = "main">
 <div id = "csempe">
@@ -130,7 +133,7 @@ console.log(abra);
 
   var tabla = d3.select("#oldal").append("table");
   var tr = tabla.selectAll("tr")
-  	.data(root.children.data.values)
+  	.data(abra.children.children.data.values)
   	.enter().append("tr");
   var td = tr.selectAll("td")
   	.data(function(d) { return d;})
