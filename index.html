@@ -100,7 +100,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 });
 
   var nested_data = d3.nest()
-  	.key(function(d) { return d.Fo; })
+  	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
