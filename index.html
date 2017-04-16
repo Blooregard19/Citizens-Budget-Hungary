@@ -133,7 +133,7 @@ console.log(abra);
 
   var tabla = d3.select("#oldal").append("table");
   var tr = tabla.selectAll("tr")
-  	.data(abra.children.children)
+  	.data(abra.children)
   	.enter().append("tr");
   var td = tr.selectAll("td")
   	.data(function(d) { return d;})
