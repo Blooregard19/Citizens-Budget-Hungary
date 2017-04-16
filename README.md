@@ -38,6 +38,7 @@ http://stackoverflow.com/questions/34783926/can-i-call-indexof-within-a-d3-selec
 http://bl.ocks.org/jfreels/6734025
 https://bost.ocks.org/mike/nest/
 https://gist.github.com/LeeMendelowitz/11383724
+https://bl.ocks.org/mbostock/4063582
 
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
