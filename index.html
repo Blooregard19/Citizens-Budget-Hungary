@@ -164,7 +164,7 @@ function type(d) {
 
 function highlight(d) {
   var szines = d3.select(this).attr("class")
-  d3.select("#csempe").selectAll(":not(." + szines + ")")
+  d3.select("#csempe").selectAll("node:not(." + szines + ")")
     //.transition()
     //.duration(200)
     .style("opacity", 0.2);
@@ -172,7 +172,7 @@ function highlight(d) {
 
 function unhighlight(d) {
   var szines = d3.select(this).attr("class")
-  d3.select("#csempe").selectAll(":not(." + szines + ")")
+  d3.select("#csempe").selectAll("node:not(." + szines + ")")
     .style("opacity", 1);
 }
 
