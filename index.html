@@ -120,14 +120,8 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
 //console.log(nested_data);
-rajzol(nested_data);
-  
-
-});
-
-function rajzol(m) {
-
-var root = d3.hierarchy({values: m.entries(m)}, function(d) { return d.values; })
+//rajzol(nested_data);
+var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
 
@@ -168,7 +162,13 @@ console.log(abra.children);
     .attr("class", function(d) {return d.data.key;})
     .html(function(d) {return d.data.key;})
     .on("mouseover", highlight)
-    .on("mouseout", unhighlight);
+    .on("mouseout", unhighlight);  
+
+});
+
+function rajzol(m) {
+
+
 }
 
 function type(d) {
