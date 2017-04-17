@@ -118,13 +118,13 @@ data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
 });
 
-if (d3.select('input[name="tipus"]:checked').node().value = "funk") {
+if (d3.select('input[name="oszt"]:checked').attr("value") == "funk") {
   var nested_data = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
-} else if (d3.select('input[name="tipus"]:checked').node().value = "intezm") {
+} else if (d3.select('input[name="oszt"]:checked').attr("value") == "intezm") {
   var nested_data2 = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
