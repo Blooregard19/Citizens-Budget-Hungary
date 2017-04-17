@@ -113,6 +113,12 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
+  var nested_data2 = d3.nest()
+  	//.key(function(d) { return d.Fo; })
+  	.key(function(d) { return romanize(d.Fejezet); })
+  	.key(function(d) { return "c" + d.Cím; })
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
+
 //console.log(nested_data);
 
   var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
@@ -177,6 +183,20 @@ function unhighlight(d) {
   var szines = d3.select(this).attr("class")
   d3.select("#csempe").selectAll(":not(." + szines + ")")
     .style("opacity", 1);
+}
+
+function romanize (num) {
+    if (!+num)
+        return false;
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
 }
 
 // Transition the rects
