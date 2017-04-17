@@ -88,8 +88,7 @@ td {
 
 <script type="text/javascript">
 
-var width = d3.select("#csempe").node().getBoundingClientRect().width,
-    height = d3.select("#csempe").node().getBoundingClientRect().height;
+
 
 var format = d3.format(",d");
 
@@ -101,13 +100,17 @@ var color = d3.scaleOrdinal(d3.schemeCategory20
 
 var ssv = d3.dsvFormat(";");
 
+
+
+function rajzol(m) {
+var width = d3.select("#csempe").node().getBoundingClientRect().width,
+    height = d3.select("#csempe").node().getBoundingClientRect().height;
+
 var treemap = d3.treemap()
     .size([width, height])
     .padding(1)
     .round(true);
 
-function rajzol(m) {
-	
 d3.request("2016_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
