@@ -116,7 +116,7 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
   var nested_data2 = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
-  	.key(function(d) { return "c" + d.Cím; })
+  	.key(function(d) { return "c" + d.Cim; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 
 //console.log(nested_data);
