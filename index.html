@@ -151,13 +151,19 @@ console.log(abra.children);
 
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
-    .html(function(d) {return d.data.key;});
+    .html(function(d) {return d.data.key;})
+    .on("mouseover", highlight)
+    .on("moseout", unhighlight);
 
 });
 
 function type(d) {
   d.value = +d.value;
   return d;
+}
+
+function highlight(d) {
+
 }
 
 // Transition the rects
