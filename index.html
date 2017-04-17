@@ -143,7 +143,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
  var abra = treemap(root);
 //console.log(abra.children);
-console.log(d3.select('input[name="tipus"]:checked').node().value);
+console.log(d3.select('input[name="tipus"]:checked').attr("value"));
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
