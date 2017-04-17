@@ -173,7 +173,7 @@ function highlight(d) {
 function unhighlight(d) {
   var szines = d3.select(this).attr("class")
   d3.select("#csempe").selectAll(":not(." + szines + ")")
-    .style("fill-opacity", 1);
+    .style("opacity", 1);
 }
 
 // Transition the rects
