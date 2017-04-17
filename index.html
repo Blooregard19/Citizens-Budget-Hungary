@@ -74,8 +74,8 @@ td {
 <body>
 <div class = "fejlec">
 <form>
-  <input type="radio" name="oszt" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
-  <input type="radio" name="oszt" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
+  <input type="radio" name="tipus" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
+  <input type="radio" name="tipus" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
 </form>
 </div>
 <div id = "main">
@@ -118,13 +118,13 @@ data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
 });
 
-if (d3.select('input[name="oszt"]:checked').attr("value") == "funk") {
+if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   var nested_data = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
-} else if (d3.select('input[name="oszt"]:checked').attr("value") == "intezm") {
+} else if (d3.select('input[name="tipus"]:checked').property("value") == "intezm") {
   var nested_data2 = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
