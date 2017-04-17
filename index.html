@@ -131,7 +131,11 @@ if (d3.select('input[name="tipus"]:checked').node().value = "funk") {
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 //console.log(nested_data);
-//rajzol(nested_data);
+//takarítás
+d3.select("#csempe").selectAll(".node").attr("opacity", 0)
+d3.select("#csempe").selectAll(".node").remove
+d3.select("#oldal").selectAll("table").remove
+//rajzolás
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
