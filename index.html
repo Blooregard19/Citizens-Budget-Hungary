@@ -165,6 +165,8 @@ function type(d) {
 function highlight(d) {
   var szines = d3.select(this).attr("class")
   d3.select("#csempe").selectAll(":not(." + szines + ")")
+    .transition()
+    .duration(200)
     .style("fill-opacity", 0.2);
 }
 
