@@ -115,18 +115,19 @@ data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
 });
 
+if (d3.select('input[name="tipus"]:checked').node().value = "funk") {
   var nested_data = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
-
+} else if (d3.select('input[name="tipus"]:checked').node().value = "intezm") {
   var nested_data2 = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
   	.key(function(d) { return "c" + d.Cim; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
-
+}
 //console.log(nested_data);
 //rajzol(nested_data);
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
