@@ -106,6 +106,8 @@ var treemap = d3.treemap()
     .padding(1)
     .round(true);
 
+function rajzol(m) {
+	
 d3.request("2016_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
@@ -175,10 +177,11 @@ console.log(abra.children);
 
 });
 
-function rajzol(m) {
-
-
 }
+
+window.onload = rajzol;
+
+d3.selectAll('input[name="tipus"]').on("change", rajzol);
 
 function type(d) {
   d.value = +d.value;
