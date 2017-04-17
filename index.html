@@ -134,10 +134,10 @@ console.log(abra.children);
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
     .append("div")
-      .attr("class", "node-label")
+      .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
       .text(function(d) { return d.data.key; })
     .append("div")
-      .attr("class", "node-value")
+      .attr("class", function(d) { return "node-value" + " " + d.parent.data.key + " " +d.data.key; })
       .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
 
   var tabla = d3.select("#oldal").append("table");
@@ -164,7 +164,7 @@ function type(d) {
 
 function highlight(d) {
   var szines = d3.select(this).attr("class")
-  d3.select("#csempe").selectAll("node:not(." + szines + ")")
+  d3.select("#csempe").selectAll(":not(." + szines + ")")
     //.transition()
     //.duration(200)
     .style("opacity", 0.2);
@@ -172,7 +172,7 @@ function highlight(d) {
 
 function unhighlight(d) {
   var szines = d3.select(this).attr("class")
-  d3.select("#csempe").selectAll("node:not(." + szines + ")")
+  d3.select("#csempe").selectAll(":not(." + szines + ")")
     .style("opacity", 1);
 }
 
