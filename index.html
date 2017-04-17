@@ -125,7 +125,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   	.key(function(d) { return d.Funkcio; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 } else if (d3.select('input[name="tipus"]:checked').property("value") == "intezm") {
-  var nested_data2 = d3.nest()
+  var nested_data = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
   	.key(function(d) { return "c" + d.Cim; })
