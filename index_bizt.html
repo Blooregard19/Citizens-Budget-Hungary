@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Citizens' Budget</title>
+	<script type="text/javascript" src="//d3js.org/d3.v4.min.js"></script>
+<style>
+
+
+.fejlec {
+  font: 10px sans-serif;
+  position: static;
+}
+#main {
+  position:absolute;
+  height: 1060px;
+  width: 99%;
+  top: 30px;
+}
+
+#csempe {
+  font: 10px sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 205px;
+}
+#oldal {
+ position: absolute;
+ top: 0;
+ right: 0;
+ width: 200px; 
+ bottom: 0;
+}
+.node {
+  box-sizing: border-box;
+  position: absolute;
+  overflow: hidden;
+}
+
+.node-label {
+  padding: 4px;
+  line-height: 1em;
+  white-space: pre;
+}
+
+.node-value {
+  color: rgba(0,0,0,0.8);
+  font-size: 9px;
+  margin-top: 1px;
+}
+table {
+  position: absolute;
+  margin: 10px;
+  font-size: 10px;
+}
+td {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+<div class = "fejlec">
+<form>
+  <label> <input type = "radio" name = "tipus" value = "funk" checked>Funkcionális</label>
+  <label> <input type = "radio" name = "tipus" value = "intezm">Intézményi</label>
+</form>
+</div>
+<div id = "main">
+<div id = "csempe">
+</div>
+<div id = "oldal">
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+var width = d3.select("#csempe").node().getBoundingClientRect().width,
+    height = d3.select("#csempe").node().getBoundingClientRect().height;
+
+var format = d3.format(",d");
+
+var color = d3.scaleOrdinal(d3.schemeCategory20
+        .map(function(c) { c = d3.rgb(c); c.opacity = 0.6; return c; }));
+
+//var stratify = d3.stratify()
+//    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+var ssv = d3.dsvFormat(";");
+
+var treemap = d3.treemap()
+    .size([width, height])
+    .padding(1)
+    .round(true);
+
+d3.request("2016_tv_01_mell_COFOG.csv")
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText)})
+	.get(function(data) {
+
+data.forEach(function(d) {
+d.Kiadas = +d.Kiadas.replace(",", ".");
+});
+
+  var nested_data = d3.nest()
+  	//.key(function(d) { return d.Fo; })
+  	.key(function(d) { return d.Fofunkcio; })
+  	.key(function(d) { return d.Funkcio; })
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
+
+  var nested_data2 = d3.nest()
+  	//.key(function(d) { return d.Fo; })
+  	.key(function(d) { return romanize(d.Fejezet); })
+  	.key(function(d) { return "c" + d.Cim; })
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
+
+//console.log(nested_data);
+
+  var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
+      .sum(function(d) { return d.value; })
+      .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
+
+ var abra = treemap(root);
+console.log(abra.children);
+//console.log(abra.children.data.key);
+  var cb = d3.select("#csempe")
+    .selectAll(".node")
+    .data(root.leaves())
+    .enter().append("div")
+      .attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
+      .attr("title", function(d) { return d.data.key; })
+      .style("left", function(d) { return d.x0 + "px"; })
+      .style("top", function(d) { return d.y0 + "px"; })
+      .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+      .style("height", function(d) { return d.y1 - d.y0 + "px"; });
+    cb.style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
+      .transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
+      .duration(500)
+      .delay(function(d, i) { return Math.min(i * 30, 1500); });
+    cb.append("div")
+      .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
+      .text(function(d) { return d.data.key; })
+    .append("div")
+      .attr("class", function(d) { return "node-value" + " " + d.parent.data.key + " " +d.data.key; })
+      .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
+
+  var tabla = d3.select("#oldal").append("table");
+  var tr = tabla.selectAll("tr")
+  	.data(abra.children)
+  	.enter().append("tr");
+  //var td = tr.selectAll("td")
+  //	.data(function(d) { return d.data.key;})
+  //	.enter().append("td")
+  //	.text(function(d) { return d;});
+
+  var td = tr.append("td")
+    .attr("class", function(d) {return d.data.key;})
+    .html(function(d) {return d.data.key;})
+    .on("mouseover", highlight)
+    .on("mouseout", unhighlight);
+
+});
+
+function type(d) {
+  d.value = +d.value;
+  return d;
+}
+
+function highlight(d) {
+  var szines = d3.select(this).attr("class")
+  d3.select("#csempe").selectAll(":not(." + szines + ")")
+    .transition()
+    .duration(200)
+    .style("opacity", 0.2);
+}
+
+function unhighlight(d) {
+  var szines = d3.select(this).attr("class")
+  d3.select("#csempe").selectAll(":not(." + szines + ")")
+    .style("opacity", 1);
+}
+
+function romanize (num) {
+    if (!+num)
+        return false;
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
+
+// Transition the rects
+d3.select("p")
+    .on("click", function() {
+        //Do something  on click
+        cb.select("#flare.vis.operator.layout.NodeLinkTreeLayout 12,870")
+          .transition
+          .style("top", "100px")
+    });
+  
+</script>
+</body>
+</html>
 
