@@ -127,7 +127,7 @@ rajzol(nested_data);
 
 function rajzol(m) {
 
-var root = d3.hierarchy({values: m.entries(data)}, function(d) { return d.values; })
+var root = d3.hierarchy({values: m.entries(m)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
 
