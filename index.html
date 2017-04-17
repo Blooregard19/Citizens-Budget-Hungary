@@ -164,14 +164,14 @@ function type(d) {
 
 function highlight(d) {
   var szines = d3.select(this).attr("class")
-  d3.select("#csempe").selectAll("." + szines)
-    .style("background", "black")
+  d3.select("#csempe").selectAll(":not(." + szines + ")")
+    .style("opacity", 0.2);
 }
 
 function unhighlight(d) {
   var szines = d3.select(this).attr("class")
-  d3.select("#csempe").selectAll("." + szines)
-    .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
+  d3.select("#csempe").selectAll(":not(." + szines + ")")
+    .style("opacity", 0.6);
 }
 
 // Transition the rects
