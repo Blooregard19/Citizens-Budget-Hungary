@@ -158,7 +158,7 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
       .style("background", '#fff');
     cb.transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
       .duration(300)
-      .delay(function(d, i) { return Math.min(i * 30, 1500); })
+      .delay(function(d, i) { return Math.min(i * 15, 1500); })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
     cb.append("div")
       .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
