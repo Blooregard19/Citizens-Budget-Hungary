@@ -144,7 +144,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
  var abra = treemap(root);
 //console.log(abra.children);
-console.log(d3.select('input[name="tipus"]:checked').attr("value"));
+console.log(d3.select("#csempe").selectAll(".node"));
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
@@ -156,7 +156,7 @@ console.log(d3.select('input[name="tipus"]:checked').attr("value"));
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; });
     cb.transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
-      .duration(250)
+      .duration(100)
       .delay(function(d, i) { return Math.min(i * 30, 1500); })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
     cb.append("div")
