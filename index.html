@@ -154,10 +154,10 @@ console.log(d3.select('input[name="tipus"]:checked').attr("value"));
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; });
-    cb.style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
-      .transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
+    cb.transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
       .duration(500)
-      .delay(function(d, i) { return Math.min(i * 30, 1500); });
+      .delay(function(d, i) { return Math.min(i * 30, 1500); })
+      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
     cb.append("div")
       .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
       .text(function(d) { return d.data.key; })
