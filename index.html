@@ -157,7 +157,7 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", '#fff');
     cb.transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
-      .duration(100)
+      .duration(300)
       .delay(function(d, i) { return Math.min(i * 30, 1500); })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
     cb.append("div")
