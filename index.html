@@ -134,9 +134,9 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
 }
 //console.log(nested_data);
 //takarítás
-d3.select("#csempe").selectAll(".node").attr("opacity", 0);
-d3.select("#csempe").selectAll(".node").data().exit.remove;
-d3.select("#oldal").selectAll("table").data().exit.remove;
+//d3.select("#csempe").selectAll(".node").attr("opacity", 0);
+//d3.select("#csempe").selectAll(".node").data().exit.remove;
+//d3.select("#oldal").selectAll("table").data().exit.remove;
 //rajzolás
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
@@ -144,7 +144,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
  var abra = treemap(root);
 //console.log(abra.children);
-console.log(d3.select("#csempe").selectAll(".node").data());
+//console.log(d3.select("#csempe").selectAll(".node").data());
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
