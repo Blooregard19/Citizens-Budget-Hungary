@@ -129,7 +129,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   var nested_data = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
-  	//.key(function(d) { return "c" + d.Cim; })
+  	.key(function(d) { return "c" + d.Cim; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 //console.log(nested_data);
