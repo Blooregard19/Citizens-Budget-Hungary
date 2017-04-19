@@ -40,6 +40,9 @@ https://bost.ocks.org/mike/nest/
 https://gist.github.com/LeeMendelowitz/11383724
 https://bl.ocks.org/mbostock/4063582
 
+http://stackoverflow.com/questions/8683555/d3-js-create-an-expanding-list-viz-using-selection-on
+https://bl.ocks.org/mbostock/5872848
+
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
 2. írja ki táblázatban a treemap mellé a megjelenített funkciókat
