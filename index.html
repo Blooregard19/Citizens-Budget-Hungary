@@ -116,6 +116,7 @@ d3.request("2016_tv_01_mell_COFOG.csv")
 
 data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
+d.Fejezet = +d.Fejezet;
 });
 
 if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
@@ -128,7 +129,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   var nested_data = d3.nest()
   	//.key(function(d) { return d.Fo; })
   	.key(function(d) { return romanize(d.Fejezet); })
-  	.key(function(d) { return "c" + d.Cim; })
+  	//.key(function(d) { return "c" + d.Cim; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 //console.log(nested_data);
@@ -155,7 +156,7 @@ console.log(d3.select('input[name="tipus"]:checked').attr("value"));
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; });
     cb.transition() //nem egyszerre, hanem sorba rajzolja ki a csempéket
-      .duration(500)
+      .duration(250)
       .delay(function(d, i) { return Math.min(i * 30, 1500); })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
     cb.append("div")
