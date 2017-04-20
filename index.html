@@ -167,8 +167,8 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
     //.append("div")
     //  .attr("class", function(d) { return "node-value" + " " + d.parent.data.key + " " +d.data.key; })
     //  .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
-    cb.transition()
-    //cb.transition() //nem egyszerre, hanem egymás után rajzolja ki a csempéket
+    //.transition()
+    cb.transition() //nem egyszerre, hanem egymás után rajzolja ki a csempéket
       .delay(function(d, i) { return Math.min(i * 10, 1500); })
       .duration(500)
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
