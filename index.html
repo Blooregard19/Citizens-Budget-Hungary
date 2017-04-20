@@ -167,20 +167,29 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
       .attr("class", function(d) { return "node-value" + " " + d.parent.data.key + " " +d.data.key; })
       .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
 
-  var tabla = d3.select("#oldal").append("table");
-  var tr = tabla.selectAll("tr")
-  	.data(abra.children)
-  	.enter().append("tr");
+  //var tabla = d3.select("#oldal").append("table");
+  //var tr = tabla.selectAll("tr")
+  //	.data(abra.children)
+ // 	.enter().append("tr");
   //var td = tr.selectAll("td")
   //	.data(function(d) { return d.data.key;})
   //	.enter().append("td")
   //	.text(function(d) { return d;});
 
-  var td = tr.append("td")
+  //var td = tr.append("td")
+  //  .attr("class", function(d) {return d.data.key;})
+  //  .html(function(d) {return d.data.key;})
+  //  .on("mouseover", highlight)
+  //  .on("mouseout", unhighlight);
+
+  var tabla = d3.select("#oldal").append("ul");
+  var tr = tabla.selectAll("li")
+    .data(abra.children)
+    .enter().append("li")
     .attr("class", function(d) {return d.data.key;})
-    .html(function(d) {return d.data.key;})
+    .text(function(d) {return d.data.key;})
     .on("mouseover", highlight)
-    .on("mouseout", unhighlight);  
+    .on("mouseout", unhighlight);
 
 });
 
