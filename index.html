@@ -110,6 +110,9 @@ var treemap = d3.treemap()
     .padding(1)
     .round(true);
 
+window.onload = rajzol;
+
+d3.selectAll('input[name="tipus"]').on("change", rajzol);
 
 function rajzol(m) {
 
@@ -148,7 +151,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
  var abra = treemap(root);
 //console.log(abra.children);
-console.log(d3.select('input[name="tipus"]:checked').property("value"));
+//console.log(d3.select('input[name="tipus"]:checked').property("value"));
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves())
@@ -202,10 +205,6 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
 });
 
 }
-
-window.onload = rajzol;
-
-d3.selectAll('input[name="tipus"]').on("change", rajzol);
 
 function type(d) {
   d.value = +d.value;
