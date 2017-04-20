@@ -183,7 +183,7 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
   //  .on("mouseout", unhighlight);
 
   var tabla = d3.select("#oldal").append("ul")
-    .style("listStyleType", "none");
+    .style("listStyleType", none);
   var tr = tabla.selectAll("li")
     .data(abra.children)
     .enter().append("li")
