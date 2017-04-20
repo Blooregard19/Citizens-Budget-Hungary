@@ -68,6 +68,9 @@ td {
   padding: 5px;
   border-bottom: 1px solid black;
 }
+#lista {
+  list-style-type: none;	
+}
 </style>
 </head>
 
@@ -183,7 +186,7 @@ console.log(d3.select('input[name="tipus"]:checked').property("value"));
   //  .on("mouseout", unhighlight);
 
   var tabla = d3.select("#oldal").append("ul")
-    .style("listStyleType", none);
+    .attr("id", "lista");
   var tr = tabla.selectAll("li")
     .data(abra.children)
     .enter().append("li")
