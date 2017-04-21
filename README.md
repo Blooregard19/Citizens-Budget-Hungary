@@ -43,6 +43,13 @@ https://bl.ocks.org/mbostock/4063582
 http://stackoverflow.com/questions/8683555/d3-js-create-an-expanding-list-viz-using-selection-on
 https://bl.ocks.org/mbostock/5872848
 
+szövegméretezések:
+https://bl.ocks.org/mbostock/1846692
+http://stackoverflow.com/questions/20115090/d3-js-auto-font-sizing-based-on-nodes-individual-radius-diameter
+http://stackoverflow.com/questions/23759457/how-to-match-text-width-to-circle-size-in-d3-circle-pack
+http://stackoverflow.com/questions/30602260/zoomable-circle-packing-with-automatic-text-sizing-in-d3-js
+http://stackoverflow.com/questions/14569415/read-width-of-d3-text-element
+
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
 2. írja ki táblázatban a treemap mellé a megjelenített funkciókat
