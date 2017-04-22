@@ -20,6 +20,12 @@ html, body {
   position: static;
   display: inline-block;
 }
+#tipusval {
+  display: inline-block;
+}
+#evval {
+  display: inline-block;
+}
 #main {
   position:absolute;
   height: 96%;
@@ -78,13 +84,13 @@ td {
 
 <body>
 <div class = "fejlec">
-<div>
+<div id = "tipusval">
 <form>
   <input type="radio" name="tipus" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
   <input type="radio" name="tipus" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
 </form>
 </div>
-<div>
+<div id = "evval">
 <select id = "year">
   <option value="2014">2014</option>
   <option value="2015">2015</option>
