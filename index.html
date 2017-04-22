@@ -81,6 +81,12 @@ td {
   <input type="radio" name="tipus" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
   <input type="radio" name="tipus" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
 </form>
+<select id = "year">
+  <option value="2014">2014</option>
+  <option value="2015">2015</option>
+  <option value="2016" selected>2016</option>
+  <option value="2017">2017</option>
+</select>
 </div>
 <div id = "main">
 <div id = "csempe">
@@ -110,8 +116,8 @@ var treemap = d3.treemap()
     .padding(1)
     .round(true);
 
-var ev = "2016"
-
+var ev = d3.select("#year").property("value");
+console.log(d3.select("#year").property("value"));
 window.onload = rajzol;
 
 d3.selectAll('input[name="tipus"]').on("change", rajzol);
