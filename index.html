@@ -110,13 +110,15 @@ var treemap = d3.treemap()
     .padding(1)
     .round(true);
 
+var ev = "2016"
+
 window.onload = rajzol;
 
 d3.selectAll('input[name="tipus"]').on("change", rajzol);
 
 function rajzol(m) {
 
-d3.request("2016_tv_01_mell_COFOG.csv")
+d3.request(ev + "_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
 	.get(function(data) {
