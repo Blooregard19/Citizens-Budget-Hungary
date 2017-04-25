@@ -170,8 +170,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .sum(function(d) { return d.value; })
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
 
- var abra = treemap(root)
-   .sticky(false);
+ var abra = treemap(root);
 //console.log(abra.children);
 //console.log(d3.select('input[name="tipus"]:checked').property("value"));
   var cb = d3.select("#csempe")
@@ -264,8 +263,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .sum(function(d) { return d.value; })
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
 
- var abra = treemap(root)
-   .sticky(false);
+ var abra = treemap(root);
 
   var cb = d3.select("#csempe")
     .selectAll(".node")
