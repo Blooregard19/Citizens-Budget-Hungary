@@ -280,8 +280,8 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
-      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
-      .text(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";});
+      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
+    cb.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";});
     d3.select("#csempe").selectAll(".node").exit().remove();
  
 oldal(abra);
