@@ -133,7 +133,7 @@ window.onload = rajzol;
 
 d3.selectAll('input[name="tipus"]').on("change", rajzol);
 
-d3.select("#year").on("change", atmenet);
+d3.select("#year").on("change", rajzol);
 	
 function rajzol(m) {
 
@@ -257,6 +257,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 console.log(d3.select("#year").property("value"));
+d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("ul").remove();
 //rajzolás
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
@@ -270,15 +271,15 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
     .data(root.leaves());
   cb.enter().append("div")
       .attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
-      .attr("title", function(d) { return d.data.key; });
-  cb.transition().duration(1000)
+      .attr("title", function(d) { return d.data.key; })
+  //cb.transition().duration(1000)
       .style("left", function(d) { return d.x0 + "px"; })
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
       //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
-  cb.exit().remove();
+  //cb.exit().remove();
  
 
   var tabla = d3.select("#oldal").append("ul")
