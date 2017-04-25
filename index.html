@@ -256,7 +256,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
    	.key(function(d) { return romanize(d.Fejezet); })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
-
+console.log(d3.select("#year").property("value"));
 d3.select("#oldal").selectAll("ul").remove();
 //rajzolás
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
