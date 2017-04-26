@@ -116,7 +116,7 @@ var format = d3.format(",d");
 
 var color = d3.scaleOrdinal(d3.schemeCategory20
         .map(function(c) { c = d3.rgb(c); c.opacity = 0.6; return c; }));
-
+//ggplot2 színek HCL mezőben: l = 65, c = 100, h 0-tól 375-ig 15-ös közökkel, d3.hcl függvénnyel előállíthatóak, de recycle kell és hozzárendelés
 //var stratify = d3.stratify()
 //    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
