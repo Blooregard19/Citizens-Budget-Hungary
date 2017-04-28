@@ -50,6 +50,13 @@ http://stackoverflow.com/questions/23759457/how-to-match-text-width-to-circle-si
 http://stackoverflow.com/questions/30602260/zoomable-circle-packing-with-automatic-text-sizing-in-d3-js
 http://stackoverflow.com/questions/14569415/read-width-of-d3-text-element
 
+sortörés:
+http://stackoverflow.com/questions/13049050/can-you-insert-a-line-break-in-text-when-using-d3-js
+https://bl.ocks.org/mbostock/7555321
+http://stackoverflow.com/questions/13241475/how-do-i-include-newlines-in-labels-in-d3-charts
+https://github.com/d3/d3/issues/60#issuecomment-856549
+http://stackoverflow.com/questions/34831006/create-line-break-in-d3
+
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
 2. írja ki táblázatban a treemap mellé a megjelenített funkciókat
