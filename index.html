@@ -143,7 +143,7 @@ var nevek = [{"funkkod": "F01", "szoveg":"Általános közszolgáltaátsok"}, {"
 	     {"funkkod": "F15", "szoveg":"Kamatkiadások"},
 	     {"funkkod": "F16", "szoveg":"Egyéb tételek"}];
 
-var keres = nevek.map(function(d, i) {nevek[i].funkkod; });
+var keres = nevek.map(function(x) {x.funkkod; });
 
 var ssv = d3.dsvFormat(";");
 
