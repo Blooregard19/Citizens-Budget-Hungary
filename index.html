@@ -143,6 +143,8 @@ var nevek = [{"funkkod": "F01", "szoveg":"Általános közszolgáltaátsok"}, {"
 	     {"funkkod": "F15", "szoveg":"Kamatkiadások"},
 	     {"funkkod": "F16", "szoveg":"Egyéb tételek"}];
 
+var keres = nevek.map(function(i) {nevek[i].funkkod; });
+
 var ssv = d3.dsvFormat(";");
 
 var treemap = d3.treemap()
@@ -210,7 +212,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
       //.style("background", '#fff') //vagy itt megadni normál hátteret és opacity-t 0-ra állítani, a transitionben pedig csak az opacity-t 1-re növelni
-      .html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
+      //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
       .html(function(d) { return felirat(d.data.key);})
       .style("opacity", 0); //html-be írja ki a szöveget
     //cb.append("div") //divekbe írja ki a szöveget
@@ -362,8 +364,8 @@ function romanize (num) {
 }
 
 function felirat(kod) {
-  var kiiras = nevek[nevek["name"].indexOf(kod)].szoveg;
-  return kiiras;
+  var kiiras = keres.indexOf(kod)];
+  return nevek[kiiras].szoveg;
 }
 // Transition the rects
 //d3.select("p")
