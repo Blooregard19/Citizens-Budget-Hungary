@@ -126,22 +126,22 @@ var color = d3.scaleOrdinal([15, 75, 135, 195, 255, 315, 45, 105, 165, 225, 285,
 //var stratify = d3.stratify()
 //    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
-var nevek = {"name": "F01", "szoveg":"Általános közszolgáltaátsok", "name": "F01.a", "szoveg":"Törvényhozás, állam működtetése","name": "F01.b", "szoveg":"Pénzügyi és költségvetési tevékenységek","name": "F01.c", "szoveg":"Külügyek","name": "F01.d", "szoveg":"Alapkutatás","name": "F01.e", "szoveg":"Műszaki fejlesztés","name": "F01.f", "szoveg":"Egyéb közösségi szolgáltatások",
-	     "name": "F02", "szoveg":"Védelem",
-	     "name": "F03", "szoveg":"Rendvédelem és közbiztonság","name": "F03.a", "szoveg":"Igazságszolgáltatás","name": "F03.b", "szoveg":"Rend- és közbiztonság","name": "F03.c", "szoveg":"Tűzvédelem","name": "F03.d", "szoveg":"BÜntetésvégrehajtás",
-	     "name": "F04", "szoveg":"Oktatás","name": "F04.a", "szoveg":"Iskolai előkészítés és alapfokú oktatás","name": "F04.b", "szoveg":"Középfokú oktatás","name": "F04.c", "szoveg":"Felsőfokú oktatás","name": "F04.d", "szoveg":"Egyéb oktatás",
-	     "name": "F05", "szoveg":"Egészségügy","name": "F05.a", "szoveg":"Kórházi tevékenységek","name": "F05.b", "szoveg":"Háziorvosi és gyermekorvosi szolgálat","name": "F05.c", "szoveg":"Rendelői, orvosi, fogorvosi ellátás","name": "F05.d", "szoveg":"Közegészségügy","name": "F05.e", "szoveg":"Egyéb egészségügy",
-	     "name": "F06", "szoveg":"Társadalombiztosítási és jóléti szolgálatások","name": "F06.a", "szoveg":"Táppénz, anyasági vagy ideiglenes rokkantsági járadékok","name": "F06.b", "szoveg":"Nyugdíj","name": "F06.c", "szoveg":"Egyéb TB-ellátás","name": "F06.d", "szoveg":"Munkanélküli ellátások","name": "F06.e", "szoveg":"Családi pótlék és gyermekeknek járó juttatások","name": "F06.f", "szoveg":"Egyéb szociális támogatások","name": "F06.g", "szoveg":"Szociális és jóléti intézményi szolgáltatások",
-	     "name": "F07", "szoveg":"Lakásügyek, települési és közösségi tevékenységek",
-	     "name": "F08", "szoveg":"Szórakoztató, kulturális és vallási tevékenységek","name": "F08.a", "szoveg":"Sport és szabadidős tevékenysége","name": "F08.b", "szoveg":"Kultúra","name": "F08.c", "szoveg":"Média","name": "F08.d", "szoveg":"Vallás","name": "F08.e", "szoveg":"Párttevékenységek","name": "F08.f", "szoveg":"Egyéb közösségi tevékenységek",
-	     "name": "F09", "szoveg":"Energetika",
-	     "name": "F10", "szoveg":"Agrárkiadások",
-	     "name": "F11", "szoveg":"Bányászat és ipar",
-	     "name": "F12", "szoveg":"Közlekedés és távközlés","name": "F12.a", "szoveg":"Közúti közlekedés","name": "F12.b", "szoveg":"Vasúti közlekedés","name": "F12.c", "szoveg":"Távközlés","name": "F12.d", "szoveg":"Egyéb közlekedés",
-	     "name": "F13", "szoveg":"Egyéb gazdasági tevékenység","name": "F13.a", "szoveg":"Többcélú fejlesztési témák","name": "F13.b", "szoveg":"Egyéb gazdasági tevékenységek",
-	     "name": "F14", "szoveg":"Környezetvédelem",
-	     "name": "F15", "szoveg":"Kamatkiadások",
-	     "name": "F16", "szoveg":"Egyéb tételek"};
+var nevek = [{"name": "F01", "szoveg":"Általános közszolgáltaátsok"}, {"name": "F01.a", "szoveg":"Törvényhozás, állam működtetése"},{"name": "F01.b", "szoveg":"Pénzügyi és költségvetési tevékenységek"},{"name": "F01.c", "szoveg":"Külügyek"},{"name": "F01.d", "szoveg":"Alapkutatás"},{"name": "F01.e", "szoveg":"Műszaki fejlesztés"},{"name": "F01.f", "szoveg":"Egyéb közösségi szolgáltatások"},
+	     {"name": "F02", "szoveg":"Védelem"},
+	     {"name": "F03", "szoveg":"Rendvédelem és közbiztonság"},{"name": "F03.a", "szoveg":"Igazságszolgáltatás"},{"name": "F03.b", "szoveg":"Rend- és közbiztonság"},{"name": "F03.c", "szoveg":"Tűzvédelem"},{"name": "F03.d", "szoveg":"Büntetésvégrehajtás"},
+	     {"name": "F04", "szoveg":"Oktatás"},{"name": "F04.a", "szoveg":"Iskolai előkészítés és alapfokú oktatás"},{"name": "F04.b", "szoveg":"Középfokú oktatás"},{"name": "F04.c", "szoveg":"Felsőfokú oktatás"},{"name": "F04.d", "szoveg":"Egyéb oktatás"},
+	     {"name": "F05", "szoveg":"Egészségügy"},{"name": "F05.a", "szoveg":"Kórházi tevékenységek"},{"name": "F05.b", "szoveg":"Háziorvosi és gyermekorvosi szolgálat"},{"name": "F05.c", "szoveg":"Rendelői, orvosi, fogorvosi ellátás"},{"name": "F05.d", "szoveg":"Közegészségügy"},{"name": "F05.e", "szoveg":"Egyéb egészségügy"},
+	     {"name": "F06", "szoveg":"Társadalombiztosítási és jóléti szolgálatások"},{"name": "F06.a", "szoveg":"Táppénz, anyasági vagy ideiglenes rokkantsági járadékok"},{"name": "F06.b", "szoveg":"Nyugdíj"},{"name": "F06.c", "szoveg":"Egyéb TB-ellátás"},{"name": "F06.d", "szoveg":"Munkanélküli ellátások"},{"name": "F06.e", "szoveg":"Családi pótlék és gyermekeknek járó juttatások"},{"name": "F06.f", "szoveg":"Egyéb szociális támogatások"},{"name": "F06.g", "szoveg":"Szociális és jóléti intézményi szolgáltatások"},
+	     {"name": "F07", "szoveg":"Lakásügyek, települési és közösségi tevékenységek"},
+	     {"name": "F08", "szoveg":"Szórakoztató, kulturális és vallási tevékenységek"},{"name": "F08.a", "szoveg":"Sport és szabadidős tevékenysége"},{"name": "F08.b", "szoveg":"Kultúra"},{"name": "F08.c", "szoveg":"Média"},{"name": "F08.d", "szoveg":"Vallás"},{"name": "F08.e", "szoveg":"Párttevékenységek"},{"name": "F08.f", "szoveg":"Egyéb közösségi tevékenységek"},
+	     {"name": "F09", "szoveg":"Energetika"},
+	     {"name": "F10", "szoveg":"Agrárkiadások"},
+	     {"name": "F11", "szoveg":"Bányászat és ipar"},
+	     {"name": "F12", "szoveg":"Közlekedés és távközlés"},{"name": "F12.a", "szoveg":"Közúti közlekedés"},{"name": "F12.b", "szoveg":"Vasúti közlekedés"},{"name": "F12.c", "szoveg":"Távközlés"},{"name": "F12.d", "szoveg":"Egyéb közlekedés"},
+	     {"name": "F13", "szoveg":"Egyéb gazdasági tevékenység"},{"name": "F13.a", "szoveg":"Többcélú fejlesztési témák"},{"name": "F13.b", "szoveg":"Egyéb gazdasági tevékenységek"},
+	     {"name": "F14", "szoveg":"Környezetvédelem"},
+	     {"name": "F15", "szoveg":"Kamatkiadások"},
+	     {"name": "F16", "szoveg":"Egyéb tételek"}];
 
 var ssv = d3.dsvFormat(";");
 
@@ -211,6 +211,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
       //.style("background", '#fff') //vagy itt megadni normál hátteret és opacity-t 0-ra állítani, a transitionben pedig csak az opacity-t 1-re növelni
       .html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
+      .html(function(d) { return felirat(d.data.key);})
       .style("opacity", 0); //html-be írja ki a szöveget
     //cb.append("div") //divekbe írja ki a szöveget
     //  .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
@@ -360,6 +361,10 @@ function romanize (num) {
     return Array(+digits.join("") + 1).join("M") + roman;
 }
 
+function felirat(kod) {
+  var kiiras = nevek[nevek["name"].indexOf(kod)].szoveg;
+  return kiiras;
+}
 // Transition the rects
 //d3.select("p")
 //    .on("click", function() {
