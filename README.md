@@ -62,6 +62,13 @@ https://codepen.io/mitchmc/pen/pebIx
 http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/
 http://code.stephenmorley.org/html-and-css/styling-buttons-with-css3/
 
+css középre igazítás:
+http://stackoverflow.com/questions/2939914/vertically-align-text-in-a-div
+
+szöveghossz számítása:
+http://stackoverflow.com/questions/118241/calculate-text-width-with-javascript/5047712#5047712
+http://stackoverflow.com/questions/29031659/calculate-width-of-text-before-drawing-the-text
+
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
 2. írja ki táblázatban a treemap mellé a megjelenített funkciókat
