@@ -57,6 +57,11 @@ http://stackoverflow.com/questions/13241475/how-do-i-include-newlines-in-labels-
 https://github.com/d3/d3/issues/60#issuecomment-856549
 http://stackoverflow.com/questions/34831006/create-line-break-in-d3
 
+radio buttton design:
+https://codepen.io/mitchmc/pen/pebIx
+http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons/
+http://code.stephenmorley.org/html-and-css/styling-buttons-with-css3/
+
 Tervek:
 1. olvassa be az adatokat és készítsen treemap-et (színezze ki funkciók szerint, írogassa ki a neveket, számokat, a beolvasott adatokat aggregálja a legmagasabb funkció szerint, mouseover hatások kezelése, esetleg jegyzetdobozok)
 2. írja ki táblázatban a treemap mellé a megjelenített funkciókat
