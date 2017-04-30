@@ -22,12 +22,8 @@ html, body {
   position: static;
   display: inline-block;
 }
-#tipusval {
-  display: inline-block;
-}
-#evval {
-  display: inline-block;
-}
+
+
 #main {
   position:absolute;
   height: 96%;
@@ -88,7 +84,58 @@ td {
 #lista {
   list-style-type: none;	
 }
+#tipusval {
+  display: inline-block;
+}
+.tipus-radio {
+    display: none;
+}
+.tipus-radio + label {
+    background-color: #fafafa;
+    border: 2px solid #cacece;
+    border-radius: 50px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 -15px 10px -12px rgba(0, 0, 0, 0.05) inset;
+    display: inline-block;
+    padding: 11px;
+    position: relative;
 
+}
+.tipus-radio + label:before {
+    background: none repeat scroll 0 0 #FDFDFD;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
+    content: " ";
+    font-size: 36px;
+    height: 8px;
+    left: 7px;
+    position: absolute;
+    top: 7px;
+    width: 8px;
+}
+.tipus-radio:checked + label:after {
+    background: none repeat scroll 0 0 #94E325;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
+    content: " ";
+    font-size: 36px;
+    height: 8px;
+    left: 7px;
+    position: absolute;
+    top: 7px;
+    width: 8px;
+}
+.tipus-radio:checked + label {
+    background-color: #e9ecee;
+    border: 2px solid #adb8c0;
+    color: #99a1a7;
+    padding: 11px;
+}
+.tipus-radio + label:active, .tipus-radio:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+}
+#evval {
+  display: inline-block;
+}
 #evval {
    /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
    height: 20px;
@@ -116,8 +163,8 @@ td {
 <div class = "fejlec">
 <div id = "tipusval">
 <form>
-  <input type="radio" name="tipus" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
-  <input type="radio" name="tipus" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
+  <input type="radio" name="tipus" class = "tipus-radio" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
+  <input type="radio" name="tipus" class = "tipus-radio" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
 </form>
 </div>
 <div id = "evval">
