@@ -87,7 +87,22 @@ td {
 #tipusval {
   display: inline-block;
 }
+#tipusval input[type="radio"] {
+  display: none;
+}
 
+#tipusval label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#tipusval input[type="radio"]:checked+label {
+  background-color: #bbb;
+}
 #evval {
   display: inline-block;
 }
