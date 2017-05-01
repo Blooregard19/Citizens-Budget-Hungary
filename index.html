@@ -427,8 +427,8 @@ function getTextWidth(text, font) {
 //szöveg méretének meghatározása
 function wrap(text, width, height) {
   //text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/), //.reverse()
+    //var text = d3.select(this),
+    var words = text.split(/\s+/), //.reverse()
 	hossz = words.forEach(function(d) {getTextWidth(d, "1em Cabin");}),
         krit = words[indexOfMax(hossz)],
 	word,
