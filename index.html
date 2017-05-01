@@ -438,18 +438,25 @@ function wrap(text, width, height) {
         //y = text.attr("y"),
         //dy = parseFloat(text.attr("dy")),
         //tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-    while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop();
-        tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-      }
+    var skala = width/d3.max(hossz); //kiszámoljuk, hogy a leghosszabb szövegrész hányszorosára növelhető maximum
+    var sorok = getTextWidth(d, "1em Cabin")/d3.max(hossz); //kiszámoljuk hány sor várható (ez lecserlendő a loop-ra, ami sorban kumulálva számítja a sorokat)
+    if (sorok * 12 * skala > height) { //ha túl magas lenne a szöveg, akkor arányosan lecsökkentjük, hogy beférjen
+      skala = height/sorok * 12 * skala;
+    } //ide még esetleg beszúrható egy maximális érték
+    return skala; //skala változót felhasználjuk, hogy hányszorosára nagyítsuk a betűt
+    //while (word = words.pop()) {
+    //  line.push(word);
+    //  tspan.text(line.join(" "));
+    //  if (tspan.node().getComputedTextLength() > width) {
+    //    line.pop();
+    //    tspan.text(line.join(" "));
+    //    line = [word];
+    //    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+    //  }
     }
   });
 }
+//véhetően ez a függvény sem kell majd
 function indexOfMax(arr) {
     if (arr.length === 0) {
         return -1;
