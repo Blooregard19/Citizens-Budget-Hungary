@@ -426,7 +426,7 @@ function getTextWidth(text, font) {
 }
 //szöveg méretének meghatározása
 function wrap(text, width, height) {
-  text.each(function() {
+  //text.each(function() {
     var text = d3.select(this),
         words = text.text().split(/\s+/), //.reverse()
 	hossz = words.forEach(function(d) {getTextWidth(d, "1em Cabin");}),
@@ -453,8 +453,8 @@ function wrap(text, width, height) {
     //    line = [word];
     //    tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
     //  }
-    }
-  });
+    //}
+  //});
 }
 //véhetően ez a függvény sem kell majd
 function indexOfMax(arr) {
