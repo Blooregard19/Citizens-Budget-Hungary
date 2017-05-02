@@ -416,21 +416,22 @@ function felirat(kod) {
   return nevek[kiiras].szoveg;
 }
 //szöveg hosszának mérése	
-function getTextWidth(text) {
+function getTextWidth(text, font) {
     // re-use canvas object for better performance
     var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
     var context = canvas.getContext("2d");
-    //context.font = font;
-    context.font = "1em Cabin";
+    context.font = font;
+    //context.font = "1em Cabin";
     var metrics = context.measureText(text);
     return metrics.width;
 }
 //szöveg méretének meghatározása
-function wrap(text, width, height) {
+function meret(szoveg, width, height) {
   //text.each(function() {
     //var text = d3.select(this),
-    var words = text.split(/\s+/), //.reverse()
-	hossz = words.forEach(function(d) { return getTextWidth(d, "1em Cabin"); }),
+    var words = szoveg.split(/\s+/), //.reverse()
+	//hossz = words.forEach(function(d) { return getTextWidth(d, "1em Cabin"); }),
+	hossz = [],
         krit = words[indexOfMax(hossz)];
 	//word,
         //line = [],
@@ -439,9 +440,12 @@ function wrap(text, width, height) {
         //y = text.attr("y"),
         //dy = parseFloat(text.attr("dy")),
         //tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+    for (var i = 0, len = words.length; i < len; i++) {
+      hossz.push(getTextWidth(words[i], "1em Cabin"));
+    }
     var skala = width/d3.max(hossz); //kiszámoljuk, hogy a leghosszabb szövegrész hányszorosára növelhető maximum
-    var sorok = getTextWidth(text, "1em Cabin")/d3.max(hossz); //kiszámoljuk hány sor várható (ez lecserlendő a loop-ra, ami sorban kumulálva számítja a sorokat)
-    if (sorok * 12 * skala > height) { //ha túl magas lenne a szöveg, akkor arányosan lecsökkentjük, hogy beférjen
+    var sorok = getTextWidth(szoveg, "1em Cabin")/d3.max(hossz); //kiszámoljuk hány sor várható (ez lecserlendő a loop-ra, ami sorban kumulálva számítja a sorokat)
+    if (sorok * 12 * skala > height) { //ha túl magas lenne a szöveg, akkor arányosan lecsökkentjük, hogy beférjen, a 12 a 10px Cabin sormagassága
       skala = height/sorok * 12 * skala;
     } //ide még esetleg beszúrható egy maximális érték
     return skala; //skala változót felhasználjuk, hogy hányszorosára nagyítsuk a betűt
