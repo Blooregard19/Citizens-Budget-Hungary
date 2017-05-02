@@ -416,11 +416,12 @@ function felirat(kod) {
   return nevek[kiiras].szoveg;
 }
 //szöveg hosszának mérése	
-function getTextWidth(text, font) {
+function getTextWidth(text) {
     // re-use canvas object for better performance
     var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
     var context = canvas.getContext("2d");
-    context.font = font;
+    //context.font = font;
+    context.font = "1em Cabin";
     var metrics = context.measureText(text);
     return metrics.width;
 }
