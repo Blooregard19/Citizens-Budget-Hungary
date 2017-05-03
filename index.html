@@ -402,6 +402,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
     cb.text(function(d) { return felirat(d.data.key);})
       .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
     d3.select("#csempe").selectAll(".node").exit().remove();
+    cb.exit().remove();
  
 oldal(abra);
 
