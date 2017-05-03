@@ -489,7 +489,7 @@ function meret(szoveg, width, height) {
       hossz.push(getTextWidth(words[i], "1em Cabin"));
     }
     var skala = width/d3.max(hossz); //kiszámoljuk, hogy a leghosszabb szövegrész hányszorosára növelhető maximum
-    var sorok = getTextWidth(szoveg, "1em Cabin")/d3.max(hossz); //kiszámoljuk hány sor várható (ez lecserlendő a loop-ra, ami sorban kumulálva számítja a sorokat)
+    var sorok = Math.ceil(getTextWidth(szoveg, "1em Cabin")/d3.max(hossz)); //kiszámoljuk hány sor várható (ez lecserlendő a loop-ra, ami sorban kumulálva számítja a sorokat)
     if (sorok * 12 * skala > height) { //ha túl magas lenne a szöveg, akkor arányosan lecsökkentjük, hogy beférjen, a 12 a 10px Cabin sormagassága
       skala = height/(sorok * 12);
     } //ide még esetleg beszúrható egy maximális érték
