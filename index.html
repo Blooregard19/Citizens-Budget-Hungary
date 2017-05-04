@@ -388,7 +388,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves());
-    cb.enter().append("div")
+  var cb = cb.enter().append("div")
       .attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
       .attr("title", function(d) { return d.data.key; });
     cb.transition().duration(1000)
