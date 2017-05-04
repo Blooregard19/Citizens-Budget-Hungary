@@ -388,21 +388,21 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves());
-    cb.enter().append("div")
-      .attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
-      .attr("title", function(d) { return d.data.key; });
-    cb.transition().duration(1000)
+  var cb2 = cb.enter().append("div");
+      cb2.attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
+      cb2.attr("title", function(d) { return d.data.key; });
+    cb2.transition().duration(1000)
       .style("left", function(d) { return d.x0 + "px"; })
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
-    cb.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";});
+    cb2.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";});
     //cb.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
     //cb.text(function(d) { return felirat(d.data.key);})
     //  .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
     //d3.select("#csempe").selectAll(".node").exit().remove();
-    cb.exit().remove();
+    cb2.exit().remove();
  
 oldal(abra);
 
