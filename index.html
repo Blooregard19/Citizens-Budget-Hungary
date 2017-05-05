@@ -384,7 +384,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
 
  var abra = treemap(root);
-
+console.log(root.leaves());
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves(), function(d) {return d ? d.data.key : this.data.key; });
