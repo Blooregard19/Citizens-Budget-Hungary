@@ -402,7 +402,7 @@ console.log(root.leaves());
     cb.text(function(d) { return felirat(d.data.key);})
       .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
     //d3.select("#csempe").selectAll(".node").exit().remove();
-    d3.select("#csempe").exit().remove();
+    d3.select("#csempe").selectAll("div").exit().remove();
  
 oldal(abra);
 
