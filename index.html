@@ -305,7 +305,8 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
       .text(function(d) { return felirat(d.data.key);})
       .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";})
-      .style("opacity", 0); //html-be írja ki a szöveget
+      .style("opacity", 0)
+      .on("click", nagyit(d3.select(this).attr("title"))); //html-be írja ki a szöveget
     //cb.append("div") //divekbe írja ki a szöveget
     //  .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
     //  .text(function(d) { return d.data.key; })
@@ -429,8 +430,8 @@ d3.request(ev + "_tv_01_mell_COFOG.csv")
 
 data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
-//d.Fejezet = +d.Fejezet;
 });
+
 if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   var data = data.filter(function (d) {return d.Funkcio === azon; })
   var nested_data = d3.nest(data)
@@ -446,39 +447,44 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 d3.select("#oldal").selectAll("ul").remove();
+//d3.select("#csempe").selectAll(":not(#" + azon + ")").remove();
 d3.select("#csempe").selectAll(".node").remove();
 
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
-      .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
+      .sort(function(a, b) {return b.value - a.value;});
 
   var abra = treemap(root);
 //console.log(root.leaves());
   var cb = d3.select("#csempe")
     .selectAll(".node")
-    .data(root.leaves(), function(d) {return d.data.key; });
-    cb.enter().append("div")
-      .attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
+    .data(root.leaves())
+    .enter().append("div")
+      .attr("class", function(d) { return "node" + " " + d.data.key; })
       .attr("title", function(d) { return d.data.key; })
       .style("left", function(d) { return d.x0 + "px"; })
       .style("top", function(d) { return d.y0 + "px"; })
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
-      .text(function(d) { return felirat(d.data.key);})
-      .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
-    cb.transition().duration(1000)
-      .style("left", function(d) { return d.x0 + "px"; })
-      .style("top", function(d) { return d.y0 + "px"; })
-      .style("width", function(d) { return d.x1 - d.x0 + "px"; })
-      .style("height", function(d) { return d.y1 - d.y0 + "px"; })
-      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
-    //cb.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";});
-    //cb.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
-    cb.text(function(d) { return felirat(d.data.key);})
-      .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
-    //d3.select("#csempe").selectAll(".node").exit().remove();
-    cb.exit().remove();
+      //.style("background", '#fff') //vagy itt megadni normál hátteret és opacity-t 0-ra állítani, a transitionben pedig csak az opacity-t 1-re növelni
+      //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
+      //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
+      .text(function(d) { return d.data.key;})
+      .style("font-size", function(d) {return meret(d.data.key, (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";})
+      .style("opacity", 0); //html-be írja ki a szöveget
+    //cb.append("div") //divekbe írja ki a szöveget
+    //  .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
+    //  .text(function(d) { return d.data.key; })
+    //.append("div")
+    //  .attr("class", function(d) { return "node-value" + " " + d.parent.data.key + " " +d.data.key; })
+    //  .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
+    //.transition()
+    d3.selectAll(".node").transition() //nem egyszerre, hanem egymás után rajzolja ki a csempéket
+      .duration(500)
+      //.delay(function(d, i) { return Math.min(i * 10, 1500); })
+      .delay(function(d) { return d3.randomUniform(1, 1000)(); })
+      .style("opacity", 1);
  
 oldal(abra);	
 
