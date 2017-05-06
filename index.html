@@ -305,8 +305,8 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
       .text(function(d) { return felirat(d.data.key);})
       .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";})
-      .style("opacity", 0)
-      .on("click", nagyit(d3.select(this).text())); //html-be írja ki a szöveget
+      .style("opacity", 0);
+      //.on("click", nagyit(d3.select(this).text())); //html-be írja ki a szöveget
     //cb.append("div") //divekbe írja ki a szöveget
     //  .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
     //  .text(function(d) { return d.data.key; })
