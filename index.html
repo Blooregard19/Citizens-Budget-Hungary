@@ -385,7 +385,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
 
  var abra = treemap(root);
-console.log(root.leaves());
+//console.log(root.leaves());
   var cb = d3.select("#csempe")
     .selectAll(".node")
     .data(root.leaves(), function(d) {return d.data.key; });
@@ -416,6 +416,72 @@ oldal(abra);
 
 });
 
+}
+
+function zoom(azon) {
+
+var ev = d3.select("#year").property("value");
+
+d3.request(ev + "_tv_01_mell_COFOG.csv")
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText)})
+	.get(function(data) {
+
+data.forEach(function(d) {
+d.Kiadas = +d.Kiadas.replace(",", ".");
+//d.Fejezet = +d.Fejezet;
+});
+if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
+  var groupdata = data.filter(function (d) {return d.Funkcio === azon; })
+  var nested_data = d3.nest()
+  	.key(function(d) { return d.Fofunkcio; })
+  	.key(function(d) { return d.Funkcio; })
+        .key(function(d) { return d.AHT; })
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
+} else if (d3.select('input[name="tipus"]:checked').property("value") == "intezm") {
+  var groupdata = data.filter(function (d) {return d.Fejezet === azon; })
+  var nested_data = d3.nest()
+   	.key(function(d) { return d.Fejezet; })
+        .key(function(d) { return d.AHT; })
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
+}
+d3.select("#oldal").selectAll("ul").remove();
+
+var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
+      .sum(function(d) { return d.value; })
+      .sort(function(a, b) {return d3.ascending(a.data.key, b.data.key);});
+
+  var abra = treemap(root);
+//console.log(root.leaves());
+  var cb = d3.select("#csempe")
+    .selectAll(".node")
+    .data(root.leaves(), function(d) {return d.data.key; });
+    cb.enter().append("div")
+      .attr("class", function(d) { return "node" + " " + d.parent.data.key + " " +d.data.key; })
+      .attr("title", function(d) { return d.data.key; })
+      .style("left", function(d) { return d.x0 + "px"; })
+      .style("top", function(d) { return d.y0 + "px"; })
+      .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+      .style("height", function(d) { return d.y1 - d.y0 + "px"; })
+      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
+      .text(function(d) { return felirat(d.data.key);})
+      .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
+    cb.transition().duration(1000)
+      .style("left", function(d) { return d.x0 + "px"; })
+      .style("top", function(d) { return d.y0 + "px"; })
+      .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+      .style("height", function(d) { return d.y1 - d.y0 + "px"; })
+      .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); });
+    //cb.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";});
+    //cb.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
+    cb.text(function(d) { return felirat(d.data.key);})
+      .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";});
+    //d3.select("#csempe").selectAll(".node").exit().remove();
+    cb.exit().remove();
+ 
+oldal(abra);	
+
+});
 }
 
 function position() { //csempék pozicionálása
