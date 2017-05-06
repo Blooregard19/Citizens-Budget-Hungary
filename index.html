@@ -418,7 +418,7 @@ oldal(abra);
 
 }
 
-function zoom(azon) {
+function nagyit(azon) {
 
 var ev = d3.select("#year").property("value");
 
@@ -432,20 +432,21 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 //d.Fejezet = +d.Fejezet;
 });
 if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
-  var groupdata = data.filter(function (d) {return d.Funkcio === azon; })
-  var nested_data = d3.nest()
+  var data = data.filter(function (d) {return d.Funkcio === azon; })
+  var nested_data = d3.nest(data)
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
         .key(function(d) { return d.AHT; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 } else if (d3.select('input[name="tipus"]:checked').property("value") == "intezm") {
-  var groupdata = data.filter(function (d) {return d.Fejezet === azon; })
-  var nested_data = d3.nest()
+  var data = data.filter(function (d) {return d.Fejezet === azon; })
+  var nested_data = d3.nest(data)
    	.key(function(d) { return d.Fejezet; })
         .key(function(d) { return d.AHT; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 d3.select("#oldal").selectAll("ul").remove();
+d3.select("#csempe").selectAll(".node").remove();
 
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
       .sum(function(d) { return d.value; })
