@@ -140,6 +140,7 @@ td {
 <form>
   <input type="radio" name="tipus" class = "tipus-radio" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
   <input type="radio" name="tipus" class = "tipus-radio" id="intezm" value="intezm"><label for="intezm">Intézményi</label>
+  <input type="radio" name="tipus" class = "tipus-radio" id="ahtt" value="ahtt"><label for="ahtt">AHTT</label>
 </form>
 </div>
 <div id = "evval">
@@ -274,6 +275,13 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   	//.key(function(d) { return romanize(d.Fejezet); })
         .key(function(d) { return d.Fejezet; })
   	//.key(function(d) { return "c" + d.Cim; })
+  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
+} else if (d3.select('input[name="tipus"]:checked').property("value") == "ahtt") {
+  var data = data.filter(function (d) {return d.Funkcio === "F01.a"; })
+  var nested_data = d3.nest(data)
+  	.key(function(d) { return d.Fofunkcio; })
+  	.key(function(d) { return d.Funkcio; })
+        .key(function(d) { return d.AHTT; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 //console.log(nested_data);
