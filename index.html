@@ -423,7 +423,7 @@ oldal(abra);
 function nagyit() {
 var azon = d3.select(this).attr("title");
 
-d3.select(this).transition().duration(200)
+d3.select("#" + azon).transition().duration(200)
       .style("left", function(d) { return "0" + "px"; })
       .style("top", function(d) { return "0" + "px"; })
       .style("width", function(d) { return width + "px"; })
