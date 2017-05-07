@@ -276,14 +276,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
         .key(function(d) { return d.Fejezet; })
   	//.key(function(d) { return "c" + d.Cim; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
-} else if (d3.select('input[name="tipus"]:checked').property("value") == "ahtt") {
-  var data = data.filter(function (d) {return d.Funkcio === "F01.a"; })
-  var nested_data = d3.nest(data)
-  	.key(function(d) { return d.Fofunkcio; })
-  	.key(function(d) { return d.Funkcio; })
-        .key(function(d) { return d.AHTT; })
-  	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
-}
+} 
 //console.log(nested_data);
 //takarítás
 //d3.select("#csempe").selectAll(".node").transition().duration(500).style("opacity", 0);
@@ -314,8 +307,8 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .text(function(d) { return felirat(d.data.key);})
       .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";})
       .style("opacity", 0);
-      cb.on("click", function() {console.log(d3.select(this).attr("title"));} ); //html-be írja ki a szöveget
-      //cb.on("click", nagyit(d3.select(this).attr("title")) ); //html-be írja ki a szöveget
+      //cb.on("click", function() {console.log(d3.select(this).attr("title"));} ); //html-be írja ki a szöveget
+      cb.on("click", nagyit(d3.select(this).attr("title")) ); //html-be írja ki a szöveget
     //cb.append("div") //divekbe írja ki a szöveget
     //  .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
     //  .text(function(d) { return d.data.key; })
@@ -446,13 +439,13 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   var nested_data = d3.nest(data)
   	.key(function(d) { return d.Fofunkcio; })
   	.key(function(d) { return d.Funkcio; })
-        .key(function(d) { return d.AHT; })
+        .key(function(d) { return d.AHTT; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 } else if (d3.select('input[name="tipus"]:checked').property("value") == "intezm") {
   var data = data.filter(function (d) {return d.Fejezet === azon; })
   var nested_data = d3.nest(data)
    	.key(function(d) { return d.Fejezet; })
-        .key(function(d) { return d.AHT; })
+        .key(function(d) { return d.AHTT; })
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 d3.select("#oldal").selectAll("ul").remove();
