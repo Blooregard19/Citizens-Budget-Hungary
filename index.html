@@ -423,7 +423,7 @@ oldal(abra);
 function nagyit() {
 var azon = d3.select(this).attr("title");
 
-d3.select("#" + azon).transition().duration(200)
+d3.select("'#" + azon + "'").transition().duration(200)
       .style("left", function(d) { return "0" + "px"; })
       .style("top", function(d) { return "0" + "px"; })
       .style("width", function(d) { return width + "px"; })
@@ -455,7 +455,7 @@ if (d3.select('input[name="tipus"]:checked').property("value") == "funk") {
   	.rollup(function(d) {return d3.sum(d, function(d) {return parseFloat(d.Kiadas); }) });
 }
 d3.select("#oldal").selectAll("ul").remove();
-d3.select("#csempe").selectAll(":not(#" + azon + ")").remove();
+d3.select("#csempe").selectAll(":not('#" + azon + "')").remove();
 //d3.select("#csempe").selectAll(".node").remove();
 
 var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { return d.values; })
