@@ -432,7 +432,8 @@ d3.select("#csempe").select("." + azon + "").transition().duration(200)
       .style("left", function(d) { return "0" + "px"; })
       .style("top", function(d) { return "0" + "px"; })
       .style("width", function(d) { return width + "px"; })
-      .style("height", function(d) { return height + "px"; });
+      .style("height", function(d) { return height + "px"; })
+      .style("font-size", "1em");
 
 var ev = d3.select("#year").property("value");
 
@@ -483,7 +484,6 @@ console.log(data);
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
       .text(function(d) { return ahttnev(d.data.key, data);})
       //.text(function(d) { return d.data.key;})
-      .style("font", "10px Cabin")
       .style("font-size", function(d) {return meret(ahttnev(d.data.key, data), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";}) //a korábbi div betűtípusát örökli nem a 10 pontos Cabin-t
       .style("opacity", 0); //html-be írja ki a szöveget
     cb.on("click", rajzol );
