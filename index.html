@@ -467,7 +467,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
   var abra = treemap(root);
 console.log(data);
 //d3.timeout(function(root)  {
-  var cb = d3.select("#csempe").select("div")
+  var cb = d3.select("#csempe").select("." + azon + "")
     .selectAll(".node")
     .data(root.leaves())
     .enter().append("div")
@@ -482,7 +482,7 @@ console.log(data);
       //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
       .text(function(d) { return ahttnev(d.data.key, data);})
-      .style("font-size", function(d) {return meret(ahttnev(d.data.key, data), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";})
+      .style("font-size", function(d) {return meret(ahttnev(d.data.key, data), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";}) //valamiért a méretet az ahtt-re és nem a visszaadott szövegre számolja ki
       .style("opacity", 0); //html-be írja ki a szöveget
     cb.on("click", rajzol );
     //cb.append("div") //divekbe írja ki a szöveget
