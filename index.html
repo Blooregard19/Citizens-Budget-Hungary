@@ -467,11 +467,11 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
 var abra = treemap(root);
 //console.log(root.leaves());
-var root2 = root.leaves();
-d3.timeout(function(root2)  {
+var rooti = root.leaves();
+d3.timeout(function(rooti)  {
   var cb = d3.select("#csempe").select("." + azon + "")
     .selectAll(".node")
-    .data(root2)
+    .data(rooti)
     .enter().append("div")
       .attr("class", function(d) { return "node" + " " + d.data.key; })
       .attr("title", function(d) { return d.data.key; })
