@@ -424,8 +424,8 @@ function nagyit() {
 var azon = d3.select(this).attr("title");
 
 d3.select("#oldal").selectAll("ul").remove();
-//d3.select("#csempe").selectAll(":not(." + azon + ")").remove();
-d3.select("#csempe").selectAll(".node").remove();
+d3.select("#csempe").selectAll(":not(." + azon + ")").remove();
+//d3.select("#csempe").selectAll(".node").remove();
 
 //d3.select("#" + azon + "").transition().duration(200)
 //      .style("left", function(d) { return "0" + "px"; })
