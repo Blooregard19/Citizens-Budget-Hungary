@@ -303,7 +303,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       //.style("background", '#fff') //vagy itt megadni normál hátteret és opacity-t 0-ra állítani, a transitionben pedig csak az opacity-t 1-re növelni
       //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
-      .text(function(d) { return felirat(d.data.key);})
+      .text(function(d) { return felirat(d.data.key);})      
       .style("font-size", function(d) {return meret(felirat(d.data.key), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";})
       .style("opacity", 0);
       //cb.on("click", function() {console.log(d3.select(this).attr("title"));} ); //html-be írja ki a szöveget
@@ -481,9 +481,10 @@ console.log(data);
       //.style("background", '#fff') //vagy itt megadni normál hátteret és opacity-t 0-ra állítani, a transitionben pedig csak az opacity-t 1-re növelni
       //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
-      //.text(function(d) { return ahttnev(d.data.key, data);})
-      .text(function(d) { return d.data.key;})
-      .style("font-size", function(d) {return meret(ahttnev(d.data.key, data), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";}) //valamiért a méretet az ahtt-re és nem a visszaadott szövegre számolja ki
+      .text(function(d) { return ahttnev(d.data.key, data);})
+      //.text(function(d) { return d.data.key;})
+      .style("font", "10px Cabin")
+      .style("font-size", function(d) {return meret(ahttnev(d.data.key, data), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";}) //a korábbi div betűtípusát örökli nem a 10 pontos Cabin-t
       .style("opacity", 0); //html-be írja ki a szöveget
     cb.on("click", rajzol );
     //cb.append("div") //divekbe írja ki a szöveget
