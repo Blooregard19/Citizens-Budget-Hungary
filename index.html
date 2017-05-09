@@ -427,11 +427,11 @@ d3.select("#oldal").selectAll("ul").remove();
 d3.select("#csempe").selectAll(":not(." + azon + ")").remove();
 //d3.select("#csempe").selectAll(".node").remove();
 
-//d3.select("#" + azon + "").transition().duration(200)
-//      .style("left", function(d) { return "0" + "px"; })
-//      .style("top", function(d) { return "0" + "px"; })
-//      .style("width", function(d) { return width + "px"; })
-//      .style("height", function(d) { return height + "px"; });
+d3.select("#" + azon + "").transition().duration(200)
+      .style("left", function(d) { return "0" + "px"; })
+      .style("top", function(d) { return "0" + "px"; })
+      .style("width", function(d) { return width + "px"; })
+      .style("height", function(d) { return height + "px"; });
 
 var ev = d3.select("#year").property("value");
 
@@ -465,7 +465,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
   var abra = treemap(root);
 console.log(data);
-  var cb = d3.select("#csempe")
+  var cb = d3.select("#" + azon + "")
     .selectAll(".node")
     .data(root.leaves())
     .enter().append("div")
