@@ -433,8 +433,7 @@ d3.select("#csempe").select("." + azon + "").transition().duration(200)
       .style("top", function(d) { return "0" + "px"; })
       .style("width", function(d) { return width + "px"; })
       .style("height", function(d) { return height + "px"; })
-      .style("font-size", "1em")
-      .style("background", "white");
+      .style("font-size", "1em");
 
 var ev = d3.select("#year").property("value");
 
@@ -497,13 +496,16 @@ d3.timeout(function()  {
     //  .text(function(d) { return format(d.value/1000) + "Mrd Ft"; });
     //.transition()
     d3.selectAll(".node").transition() //nem egyszerre, hanem egymás után rajzolja ki a csempéket
-      .duration(500)
+      .duration(350)
       //.delay(function(d, i) { return Math.min(i * 10, 1500); })
       .delay(function(d) { return d3.randomUniform(1, 1000)(); })
       .style("opacity", 1); 
 	}
 , 150);
 
+d3.select("#csempe").select("." + azon + "").transition().duration(200)
+	.style("opacity", 0);
+	
 oldal(abra);	
 
 });
