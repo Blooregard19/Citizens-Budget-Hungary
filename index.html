@@ -428,7 +428,7 @@ d3.select("#csempe").selectAll(":not(." + azon + ")").remove();
 //d3.select("#csempe").selectAll(".node").remove();
 console.log(azon);
 	
-d3.select("#csempe").select("#" + azon + "").transition().duration(200)
+d3.select("#csempe").select("." + azon + "").transition().duration(200)
       .style("left", function(d) { return "0" + "px"; })
       .style("top", function(d) { return "0" + "px"; })
       .style("width", function(d) { return width + "px"; })
@@ -466,7 +466,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
 
   var abra = treemap(root);
 console.log(data);
-d3.timeout(function(root)  {
+//d3.timeout(function(root)  {
   var cb = d3.select("#csempe").select("div")
     .selectAll(".node")
     .data(root.leaves())
@@ -497,8 +497,8 @@ d3.timeout(function(root)  {
       //.delay(function(d, i) { return Math.min(i * 10, 1500); })
       .delay(function(d) { return d3.randomUniform(1, 1000)(); })
       .style("opacity", 1); 
-	}
-, 300);
+//	}
+//, 300);
 
 oldal(abra);	
 
