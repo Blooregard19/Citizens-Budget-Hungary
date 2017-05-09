@@ -466,7 +466,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
       .sort(function(a, b) {return b.value - a.value;});
 
   var abra = treemap(root);
-console.log(data);
+console.log(root);
 d3.timeout(function(root)  {
   var cb = d3.select("#csempe").select("." + azon + "")
     .selectAll(".node")
