@@ -487,7 +487,7 @@ d3.timeout(function()  {
       //.text(function(d) { return d.data.key;})
       .style("font-size", function(d) {return meret(ahttnev(d.data.key, data), (d.x1 - d.x0)*0.9, (d.y1 - d.y0)*0.9) + "em";}) //a korábbi div betűtípusát örökli nem a 10 pontos Cabin-t
       .style("opacity", 0); //html-be írja ki a szöveget
-    cb.on("click", rajzol );
+    cb.on("click", visszanagyit );
     //cb.append("div") //divekbe írja ki a szöveget
     //  .attr("class", function(d) { return "node-label" + " " + d.parent.data.key + " " +d.data.key; })
     //  .text(function(d) { return d.data.key; })
@@ -546,6 +546,11 @@ function unhighlight(d) {
   var szines = d3.select(this).attr("class")
   d3.select("#csempe").selectAll(":not(." + szines + ")")
     .style("opacity", 1);
+}
+
+function visszanagyit {
+  d3.select("#csempe").select("." + azon + "").selectAll(".node").remove;
+  call(rajzol);
 }
 
 function romanize (num) {
