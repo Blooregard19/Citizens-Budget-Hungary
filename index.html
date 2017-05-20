@@ -646,10 +646,10 @@ function meret(szoveg, width, height) {
     var sorok = 1;
     var sorhossz = 0;
     for (var i = 0, len = words.length; i < len; i++) {
-      sorhossz = sorhossz + (getTextWidth(words[i], "1em Cabin");
+      sorhossz = sorhossz + getTextWidth(words[i], "1em Cabin");
       if (sorhossz > d3.max(hossz)) {
         sorok = sorok + 1;
-	sorhossz = (getTextWidth(words[i], "1em Cabin");
+	sorhossz = getTextWidth(words[i], "1em Cabin");
       };
     }
     //var sorok = Math.ceil(getTextWidth(szoveg, "1em Cabin")/d3.max(hossz)); //kiszámoljuk hány sor várható (ez lecserlendő a loop-ra, ami sorban kumulálva számítja a sorokat)
