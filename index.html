@@ -335,16 +335,17 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
   //  .html(function(d) {return d.data.key;})
   //  .on("mouseover", highlight)
   //  .on("mouseout", unhighlight);
-
-  var tabla = d3.select("#oldal").append("ul")
-    .attr("id", "lista");
-  var tr = tabla.selectAll("li")
-    .data(abra.children)
-    .enter().append("li")
-    .attr("class", function(d) {return d.data.key;})
-    .text(function(d) {return d.data.key;})
-    .on("mouseover", highlight)
-    .on("mouseout", unhighlight);
+oldal(abra);
+	
+//  var tabla = d3.select("#oldal").append("ul")
+//    .attr("id", "lista");
+//  var tr = tabla.selectAll("li")
+//    .data(abra.children)
+//    .enter().append("li")
+//    .attr("class", function(d) {return d.data.key;})
+//    .text(function(d) {return d.data.key;})
+//    .on("mouseover", highlight)
+//    .on("mouseout", unhighlight);
 
 });
 
@@ -551,7 +552,7 @@ function unhighlight(d) {
 
 function visszanagyit() {
   d3.select("#csempe").selectAll(".node").remove;
-  rajzol;
+  atmenet;
 }
 
 function romanize (num) {
