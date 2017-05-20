@@ -463,7 +463,7 @@ d3.timeout(function()  {
     .selectAll(".node")
     .data(rooti)
     .enter().append("div")
-      .attr("class", function(d) { return "node" + " " + d.data.key; })
+      .attr("class", function(d) { return d.data.key; })
       .attr("title", function(d) { return d.data.key; })
       .style("left", function(d) { return d.x0 + "px"; })
       .style("top", function(d) { return d.y0 + "px"; })
@@ -583,8 +583,8 @@ function unhighlight(d) {
 }
 
 function visszanagyit() {
-  d3.select("#csempe").selectAll(".node").remove;
-  atmenet();
+  d3.select("#csempe").select("div").selectAll(":not(.node)").remove;
+  //atmenet();
 }
 
 function romanize (num) {
