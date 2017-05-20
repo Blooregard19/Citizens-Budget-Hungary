@@ -532,7 +532,7 @@ var tabla = d3.select("#oldal").append("table");
 
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
-    .html(function(d) {return d.data.key;})
+    .html(function(d) {return felirat(d.data.key);})
     .on("mouseover", highlight)
     .on("mouseout", unhighlight);
   var td = tr.append("td")
