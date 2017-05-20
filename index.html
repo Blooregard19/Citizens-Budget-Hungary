@@ -403,7 +403,7 @@ var root = d3.hierarchy({values: nested_data.entries(data)}, function(d) { retur
     //d3.select("#csempe").selectAll(".node").exit().remove();
     cb.exit().remove();
  
-oldal(abra);
+oldal(root.leaves());
 
 });
 
@@ -499,7 +499,7 @@ d3.timeout(function()  {
 //	}
 //, 500);
 	
-oldal(abra);	
+oldal(root.leaves());	
 
 });
 }
@@ -532,12 +532,14 @@ var tabla = d3.select("#oldal").append("table");
 
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
+    .attr("title", function(d) { return d.data.key; })
     .html(function(d) {return felirat(d.data.key);})
     .on("mouseover", highlight)
     .on("mouseout", unhighlight)
     .on("click", nagyit );
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
+    .attr("title", function(d) { return d.data.key; })
     .html(function(d) {return format(d.value/1000) + "Mrd Ft";})
     .on("mouseover", highlight)
     .on("mouseout", unhighlight)
