@@ -534,12 +534,14 @@ var tabla = d3.select("#oldal").append("table");
     .attr("class", function(d) {return d.data.key;})
     .html(function(d) {return felirat(d.data.key);})
     .on("mouseover", highlight)
-    .on("mouseout", unhighlight);
+    .on("mouseout", unhighlight)
+    .on("click", nagyit );
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
     .html(function(d) {return format(d.value/1000) + "Mrd Ft";})
     .on("mouseover", highlight)
-    .on("mouseout", unhighlight);
+    .on("mouseout", unhighlight)
+    .on("click", nagyit );
 }
 
 function highlight(d) {
