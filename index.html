@@ -523,7 +523,7 @@ function oldal(abra) {
 //    .on("mouseout", unhighlight);	
 var tabla = d3.select("#oldal").append("table");
   var tr = tabla.selectAll("tr")
-  	.data(abra.children)
+  	.data(abra)
   	.enter().append("tr");
   //var td = tr.selectAll("td") // ez nem jó megoldás volt, az alatta lévő helyes
   //	.data(function(d) { return d.data.key;})
