@@ -424,7 +424,7 @@ d3.select("#csempe").select("." + azon + "").transition().duration(200)
       .style("width", function(d) { return width + "px"; })
       .style("height", function(d) { return height + "px"; })
       .style("font-size", "1em")
-      .style("zIndex", "-1");
+      .on("click", null);
 
 var ev = d3.select("#year").property("value");
 
@@ -471,7 +471,6 @@ d3.timeout(function()  {
       .style("width", function(d) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d) { return d.y1 - d.y0 + "px"; })
       .style("background", function(d) { while (d.depth > 1) d = d.parent; return color(d.data.key); })
-      .style("zIndex", "1")
       //.style("background", '#fff') //vagy itt megadni normál hátteret és opacity-t 0-ra állítani, a transitionben pedig csak az opacity-t 1-re növelni
       //.html(function(d) { return d.data.key + "<br>" + format(d.value/1000) + "Mrd Ft";})
       //.html(function(d) { return felirat(d.data.key) + "<br>" + format(d.value/1000) + "Mrd Ft";})
