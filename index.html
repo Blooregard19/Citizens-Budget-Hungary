@@ -499,21 +499,22 @@ d3.timeout(function()  {
 //	}
 //, 500);
 d3.select("#oldal").selectAll("table").remove();
+
 var tabla = d3.select("#oldal").append("table");
   var tr = tabla.selectAll("tr")
-  	.data(abra)
+  	.data(rooti)
   	.enter().append("tr");
 var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
     .attr("title", function(d) { return d.data.key; })
-    .html(function(d) {return ahttnev(d.data.key, data);})
+    .text(function(d) {return ahttnev(d.data.key, data);})
     .on("mouseover", highlight)
     .on("mouseout", unhighlight)
     //.on("click", nagyit );
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
     .attr("title", function(d) { return d.data.key; })
-    .html(function(d) {return format(d.value/1000) + "Mrd Ft";})
+    .text(function(d) {return format(d.value/1000) + "Mrd Ft";})
     .on("mouseover", highlight)
     .on("mouseout", unhighlight)
     //.on("click", nagyit );
