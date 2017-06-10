@@ -598,9 +598,10 @@ function unhighlight(d) {
 }
 
 function formaz(ertek) {
-  if (ertek < 1000)
-    return format(ertek) + "millió Ft";
-  return format(ertek/1000) + "Mrd Ft";
+  if (ertek < 1000) {
+    return format(ertek) + "millió Ft"; };
+  if (ertek >= 1000) {
+    return format(ertek/1000) + "Mrd Ft"; };
 }
 	
 function visszanagyit() {
