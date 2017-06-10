@@ -576,7 +576,8 @@ var tabla = d3.select("#oldal").append("table");
   var td = tr.append("td")
     .attr("class", function(d) {return d.data.key;})
     .attr("title", function(d) { return d.data.key; })
-    .html(function(d) {return format(d.value/1000) + "Mrd Ft";})
+    //.html(function(d) {return format(d.value/1000) + "Mrd Ft";})
+    .html(function(d) {return formaz(d.value);})
     .on("mouseover", highlight)
     .on("mouseout", unhighlight)
     .on("click", nagyit );
@@ -596,6 +597,12 @@ function unhighlight(d) {
     .style("opacity", 1);
 }
 
+function formaz(ertek) {
+  if (ertek < 1000)
+    return format(ertek) + "millió Ft";
+  return format(ertek/1000) + "Mrd Ft";
+}
+	
 function visszanagyit() {
   d3.select("#csempe").select("div").selectAll(".node").remove;
   atmenet();
