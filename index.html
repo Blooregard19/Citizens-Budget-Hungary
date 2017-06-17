@@ -191,7 +191,7 @@ d3.select("#main")
     .style("width", function(x) {return oldalszel + "px"});
 
 d3.select("#oldal")
-    .style("height", function(x) {return d3.select("#main").node().getBoundingClientRect().height;});
+    .style("height", function(x) {return d3.select("#main").node().getBoundingClientRect().height + "px";});
 console.log(d3.select("#main").node().getBoundingClientRect().height);
 
 var width = d3.select("#csempe").node().getBoundingClientRect().width,
