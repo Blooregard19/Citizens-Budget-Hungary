@@ -173,8 +173,8 @@ td {
 </div>
 <script type="text/javascript">
 
-var oldalmag = screen.height;
-var oldalszel = screen.width;
+var oldalmag = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+var oldalszel = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 //document.documentElement.clientWidth
 //document.documentElement.clientHeight
 console.log(oldalmag);
