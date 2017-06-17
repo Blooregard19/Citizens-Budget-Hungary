@@ -59,6 +59,7 @@ html, body {
  right: 0px;
  width: 200px;
  /*bottom: 0px;*/
+ overflow-y: auto;
 }
 .node {
   box-sizing: border-box;
@@ -188,6 +189,8 @@ var fejlecmag = d3.select(".fejlec").node().getBoundingClientRect().height;
 d3.select("#main")
     .style("height", function(x) {return (oldalmag - fejlecmag) + "px"})
     .style("width", function(x) {return oldalszel + "px"});
+d3.select("#oldal")
+    .style("height", function(x) {return d3.select("#main").node().getBoundingClientRect().height;});
 
 var width = d3.select("#csempe").node().getBoundingClientRect().width,
     height = d3.select("#csempe").node().getBoundingClientRect().height;
