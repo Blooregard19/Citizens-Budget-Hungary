@@ -141,7 +141,26 @@ td {
    width: 79px;
    color: #fff;
 }
+#formaval {
+  display: inline-block;
+}
+#formaval input[type="radio"] {
+  display: none;
+}
 
+#formaval label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 4px 11px;
+  font-family: Cabin;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#formaval input[type="radio"]:checked+label {
+  background-color: #779126;
+  color: #fff;
+}
 </style>
 </head>
 
@@ -163,7 +182,12 @@ td {
   <option value="2018" selected>2018</option>
 </select>
 </div>
-
+<div id = "formaval">
+<form>
+  <input type="radio" name="forma" class = "forma-radio" id="csempe" value="csempe" checked><label for="csempe">Csempe</label>
+  <input type="radio" name="forma" class = "forma-radio" id="ngm" value="ngm"><label for="ngm">Hivatalos</label>
+</form>
+</div>
 </div>
 <div id = "main">
 <div id = "csempe">
