@@ -148,6 +148,13 @@ td {
 <body>
 <div id = "fo">
 <div class = "fejlec">
+<div id = "forma">
+<form>
+  <input type="radio" name="hivatalos" class = "hivatalos-radio" id="csempe" value="csempe" checked><label for="csempe">Csempe</label>
+  <input type="radio" name="hivatalos" class = "hivatalos-radio" id="ngm" value="ngm"><label for="ngm">Hivatalos</label>
+</form>
+</div>
+
 <div id = "tipusval">
 <form>
   <input type="radio" name="tipus" class = "tipus-radio" id="funk" value="funk" checked><label for="funk">Funkcionális</label>
@@ -162,11 +169,6 @@ td {
   <option value="2017">2017</option>
   <option value="2018" selected>2018</option>
 </select>
-</div>
-<div id = "hivatalos">
-<form>
-  <input type="radio" name="hivatalos" class = "hivatalos-radio" id="ngm" value="ngm"><label for="ngm">Hivatalos</label>
-</form>
 </div>
 
 </div>
@@ -446,23 +448,26 @@ oldal(root.leaves());
 
 });
 
-//function hivatalos(m) {
-//var ev = d3.select("#year").property("value");
 
-//d3.request(ev + "_tv_01_mell_COFOG.csv")
-//	.mimeType("text/plain")
-//	.response(function(xhr) { return ssv.parse(xhr.responseText)})
-//	.get(function(data) {
+}
 
-//data.forEach(function(d) {
-//d.Kiadas = +d.Kiadas.replace(",", ".");
+function hivatalos(m) {
+var ev = d3.select("#year").property("value");
+
+d3.request(ev + "_tv_01_mell_COFOG.csv")
+	.mimeType("text/plain")
+	.response(function(xhr) { return ssv.parse(xhr.responseText)})
+	.get(function(data) {
+
+data.forEach(function(d) {
+d.Kiadas = +d.Kiadas.replace(",", ".");
 //d.Fejezet = +d.Fejezet;
-//});
-//d3.select("#csempe").selectAll(".node").remove();
-//d3.select("#oldal").selectAll("ul").remove();
+});
+d3.select("#csempe").selectAll(".node").remove();
+d3.select("#oldal").selectAll("ul").remove();
 
-//}
-//});
+}
+});
 }
 
 function nagyit() {
