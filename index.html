@@ -648,7 +648,7 @@ d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("table").remove();
 
 var melleklet = d3.select("#csempe").append("table");
-  var tr = tabla.selectAll("tr")
+  var tr = melleklet.selectAll("tr")
   	.data(d)
   	.enter().append("tr");
 var td = tr.append("td")
