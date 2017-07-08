@@ -655,7 +655,7 @@ var melleklet = d3.select("#csempe").append("table");
 var td = tr.append("td")
     //.attr("class", function(d) {return d.data.key;})
     //.attr("title", function(d) { return d.data.key; })
-    .html(function(d) {return felirat(d.Nev);});
+    .html(function(d) {return d.Nev;});
     //.on("click", nagyit );
 });
 }
