@@ -657,6 +657,8 @@ var td = tr.append("td")
     //.attr("title", function(d) { return d.data.key; })
     .html(function(d) {return d.Nev;});
     //.on("click", nagyit );
+  tr.append("td").html(function(d) {return d.Kiadas;});
+  tr.append("td").html(function(d) {return d.Bevetel;});
 });
 }
 
