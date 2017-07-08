@@ -645,8 +645,17 @@ d.Kiadas = +d.Kiadas.replace(",", ".");
 //d.Fejezet = +d.Fejezet;
 });
 d3.select("#csempe").selectAll(".node").remove();
-d3.select("#oldal").selectAll("ul").remove();
+d3.select("#oldal").selectAll("table").remove();
 
+var melleklet = d3.select("#csempe").append("table");
+  var tr = tabla.selectAll("tr")
+  	.data(d)
+  	.enter().append("tr");
+var td = tr.append("td")
+    //.attr("class", function(d) {return d.data.key;})
+    //.attr("title", function(d) { return d.data.key; })
+    .html(function(d) {return felirat(d.Nev);});
+    //.on("click", nagyit );
 });
 }
 
