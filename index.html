@@ -640,18 +640,17 @@ d3.request(ev + "_tv_01_mell_COFOG.csv")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
 	.get(function(data) {
 
-adat = data.forEach(function(d) {
+data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
 //d.Fejezet = +d.Fejezet;
 });
 
-console.log(adat);
 d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("table").remove();
 
 var melleklet = d3.select("#csempe").append("table");
   var tr = melleklet.selectAll("tr")
-  	.data(adat)
+  	.data(data)
   	.enter().append("tr");
 var td = tr.append("td")
     //.attr("class", function(d) {return d.data.key;})
