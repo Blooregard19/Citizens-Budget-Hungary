@@ -635,16 +635,16 @@ var tabla = d3.select("#oldal").append("table");
 function hivatalos(m) {
 var ev = d3.select("#year").property("value");
 
-adat = d3.request(ev + "_tv_01_mell_COFOG.csv")
+d3.request(ev + "_tv_01_mell_COFOG.csv")
 	.mimeType("text/plain")
 	.response(function(xhr) { return ssv.parse(xhr.responseText)})
 	.get(function(data) {
 
-data.forEach(function(d) {
+adat = data.forEach(function(d) {
 d.Kiadas = +d.Kiadas.replace(",", ".");
 //d.Fejezet = +d.Fejezet;
 });
-});
+
 console.log(adat);
 d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("table").remove();
@@ -658,7 +658,7 @@ var td = tr.append("td")
     //.attr("title", function(d) { return d.data.key; })
     .html(function(d) {return felirat(d.Nev);});
     //.on("click", nagyit );
-//});
+});
 }
 
 function highlight(d) {
