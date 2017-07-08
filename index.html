@@ -778,11 +778,13 @@ function aktival() {
 if ((d3.select('input[name="forma"]:checked').property("value") == "csempeval")) {
 document.getElementById("funk").disabled=false;
 document.getElementById("intezm").disabled=false;
+rajzol();
 }
 
 if ((d3.select('input[name="forma"]:checked').property("value") == "ngm")) {
 document.getElementById("funk").disabled=true;
 document.getElementById("intezm").disabled=true;
+hivatalos();
 }
 
 }
