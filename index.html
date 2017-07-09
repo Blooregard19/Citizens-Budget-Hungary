@@ -650,15 +650,15 @@ d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("table").remove();
 
 var melleklet = d3.select("#csempe").append("table");
-var fejlec = melleklet.append("tr");
-fejlec.append("td").html("Megnevezés");
-fejlec.append("td").html("Kiadás");
-fejlec.append("td").html("Bevétel");
-fejlec.append("td").html("Funkció");
-fejlec.append("td").html("Fejezet");
+
   var tr = melleklet.selectAll("tr")
   	.data(data)
   	.enter().append("tr");
+  tr.append("th").html("Megnevezés");
+  tr.append("th").html("Kiadás");
+  tr.append("th").html("Bevétet");
+  tr.append("th").html("Funkció");
+  tr.append("th").html("Fejezet");
   var td = tr.append("td")
     //.attr("class", function(d) {return d.data.key;})
     //.attr("title", function(d) { return d.data.key; })
