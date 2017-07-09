@@ -650,18 +650,19 @@ d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("table").remove();
 
 var melleklet = d3.select("#csempe").append("table");
+melleklet.append("tr").append("td").html("Megnevezés");
   var tr = melleklet.selectAll("tr")
   	.data(data)
   	.enter().append("tr");
-var td = tr.append("td")
+  var td = tr.append("td")
     //.attr("class", function(d) {return d.data.key;})
     //.attr("title", function(d) { return d.data.key; })
     .html(function(d) {return d.Nev;});
     //.on("click", nagyit );
-  tr.append("td").html(function(d) {return d.Kiadas;});
-  tr.append("td").html(function(d) {return d.Bevetel;});
-  tr.append("td").html(function(d) {return d.Fofunkcio;});
-  tr.append("td").html(function(d) {return felirat(d.Fejezet);});
+    tr.append("td").html(function(d) {return d.Kiadas;});
+    tr.append("td").html(function(d) {return d.Bevetel;});
+    tr.append("td").html(function(d) {return d.Fofunkcio;});
+    tr.append("td").html(function(d) {return felirat(d.Fejezet);});
 });
 }
 
