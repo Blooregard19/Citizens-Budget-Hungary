@@ -168,11 +168,11 @@ td {
   color: #fff;
 }
 
-//*html>body thead.fixedHeader tr {
+html>body thead.fixedHeader tr {
     display: block;
-}*//
+}
 
-tbody.scrollContent {
+html>body tbody.scrollContent {
     display: block;
     overflow: auto;
 }
@@ -675,7 +675,7 @@ var fejlec = melleklet.append("thead")
   fejlec.append("th").html("Fejezet");
   var tr = melleklet.append("tbody")
   	.attr("class", "scrollContent")
-  	//.style("height", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height + "px";})
+  	.style("height", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height + "px";})
   	.selectAll("tr")
   	.data(data)
   	.enter().append("tr");
