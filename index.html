@@ -698,7 +698,7 @@ var cellak = group.getElementsByTagName('td');
 
 var group = document.querySelector('#tablafej');
 var fejek = group.getElementsByTagName('th');
-console.log(fejek);
+console.log(cellak);
 console.log(d3.select(fejek[0]).node().offsetWidth);
 d3.select(fejek[0]).style("width", function (d) {return d3.select(cellak[0]).node().offsetWidth + "px";});
 d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).node().offsetWidth + "px";});
