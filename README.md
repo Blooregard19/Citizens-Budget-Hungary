@@ -1,6 +1,8 @@
 # Citizens-Budget-Hungary
 Citizens' Budget for Hungary using d3.js treemap
 
+There is no license specified yet while work in progress. Please ask for permission before forking this project.
+
 További tennivalók:
 - polgárok költségvetésénél az összehasonlításnál a forint összeget is ki lehet írni magyarázattal, hogy korábban kevesebb pénzt lehetett elkölteni
 - szintén polgárok költségvetése modul lehet, hogy a régi szerkezetben ma mire mennyit költenénk
