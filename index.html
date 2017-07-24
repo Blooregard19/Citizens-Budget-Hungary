@@ -650,7 +650,9 @@ d3.select("#csempe").selectAll(".node").remove();
 d3.select("#oldal").selectAll("table").remove();
 
 var melleklet = d3.select("#csempe").append("table");
-var fejlec = melleklet.append("thead").append("tr");
+var fejlec = melleklet.append("thead")
+  .attr("class", "fixedHeader")
+  .append("tr");
   fejlec.append("th").html("Megnevezés");
   fejlec.append("th").html("Kiadás");
   fejlec.append("th").html("Bevétet");
