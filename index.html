@@ -667,6 +667,7 @@ d3.select("#oldal").selectAll("table").remove();
 var melleklet = d3.select("#csempe").append("table");
 var fejlec = melleklet.append("thead")
   .attr("class", "fixedHeader")
+  .attr("id", "tablafej")
   //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
   .append("tr");
   fejlec.append("th").html("Megnevezés");
@@ -695,7 +696,7 @@ var fejlec = melleklet.append("thead")
 var group = document.querySelector('#lapozotabla');
 var cellak = group.getElementsByTagName('td');
 
-var group2 = document.querySelector('.fixedHeader');
+var group = document.querySelector('#tablafej');
 var fejek = group.getElementsByTagName('th');
 console.log(fejek);
 console.log(d3.select(fejek[0]).node().offsetWidth);
