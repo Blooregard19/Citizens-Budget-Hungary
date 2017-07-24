@@ -692,7 +692,9 @@ var fejlec = melleklet.append("thead")
     tr.append("td").html(function(d) {return d.Bevetel;});
     tr.append("td").html(function(d) {return d.Fofunkcio;});
     tr.append("td").html(function(d) {return felirat(d.Fejezet);});
-console.log(d3.select("#lapozotabla").select("tr").select("td").node.getBoundingClientRect().width);
+var group = document.querySelector('#lapozotabla');
+var cellak = group.getElementsByTagName('td');
+console.log(d3.select(cellak[0]).node.getBoundingClientRect().width);
 });
 }
 
