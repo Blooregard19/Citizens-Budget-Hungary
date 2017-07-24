@@ -60,7 +60,7 @@ html, body {
  right: 0px;
  width: 200px;
  /*bottom: 0px;*/
- overflow-y: auto;
+ overflow-y: hidden;
 }
 .node {
   box-sizing: border-box;
@@ -162,6 +162,16 @@ td {
   background-color: #779126;
   color: #fff;
 }
+
+html>body thead.fixedHeader tr {
+    display: block;
+}
+
+html>body tbody.scrollContent {
+    display: block;
+    overflow: auto;
+}
+
 </style>
 </head>
 
@@ -658,7 +668,9 @@ var fejlec = melleklet.append("thead")
   fejlec.append("th").html("Bevétet");
   fejlec.append("th").html("Funkció");
   fejlec.append("th").html("Fejezet");
-  var tr = melleklet.append("tbody").selectAll("tr")
+  var tr = melleklet.append("tbody")
+  	.attr("class", "scrollContent")
+  	.selectAll("tr")
   	.data(data)
   	.enter().append("tr");
   
