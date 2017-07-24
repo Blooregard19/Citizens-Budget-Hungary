@@ -695,7 +695,11 @@ var fejlec = melleklet.append("thead")
 var group = document.querySelector('#lapozotabla');
 var cellak = group.getElementsByTagName('td');
 console.log(cellak[0]);
-console.log(d3.select(cellak[0]).offsetWidth);
+console.log(d3.select(cellak[0]).select("td").offsetWidth);
+
+var group2 = document.querySelector('.fixedHeader');
+var fejek = group.getElementsByTagName('th');
+
 });
 }
 
