@@ -694,7 +694,7 @@ var fejlec = melleklet.append("thead")
     tr.append("td").html(function(d) {return felirat(d.Fejezet);});
 var group = document.querySelector('#lapozotabla');
 var cellak = group.getElementsByTagName('td');
-console.log(cellak[0]);
+console.log(cellak);
 console.log(d3.select(cellak[0]).select("td").offsetWidth);
 
 var group2 = document.querySelector('.fixedHeader');
