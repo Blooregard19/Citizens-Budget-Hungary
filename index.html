@@ -667,7 +667,7 @@ d3.select("#oldal").selectAll("table").remove();
 var melleklet = d3.select("#csempe").append("table");
 var fejlec = melleklet.append("thead")
   .attr("class", "fixedHeader")
-  .style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height * 0.95 + "px";})
+  .style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
   .append("tr");
   fejlec.append("th").html("Megnevezés");
   fejlec.append("th").html("Kiadás");
@@ -677,7 +677,7 @@ var fejlec = melleklet.append("thead")
   var tr = melleklet.append("tbody")
   	.attr("class", "scrollContent")
   	.style("height", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height * 0.95 + "px";})
-        .style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height * 0.95 + "px";})
+        .style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
   	.selectAll("tr")
   	.data(data)
   	.enter().append("tr");
