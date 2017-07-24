@@ -163,9 +163,9 @@ td {
   color: #fff;
 }
 
-html>body thead.fixedHeader tr {
+//*html>body thead.fixedHeader tr {
     display: block;
-}
+}*//
 
 html>body tbody.scrollContent {
     display: block;
@@ -683,6 +683,9 @@ var fejlec = melleklet.append("thead")
     tr.append("td").html(function(d) {return d.Bevetel;});
     tr.append("td").html(function(d) {return d.Fofunkcio;});
     tr.append("td").html(function(d) {return felirat(d.Fejezet);});
+d3.select(".scrollContent")
+    .style("height", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height + "px";});
+
 });
 }
 
