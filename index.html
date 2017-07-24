@@ -670,6 +670,7 @@ var fejlec = melleklet.append("thead")
   fejlec.append("th").html("Fejezet");
   var tr = melleklet.append("tbody")
   	.attr("class", "scrollContent")
+  	.style("height", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height + "px";})
   	.selectAll("tr")
   	.data(data)
   	.enter().append("tr");
@@ -683,8 +684,6 @@ var fejlec = melleklet.append("thead")
     tr.append("td").html(function(d) {return d.Bevetel;});
     tr.append("td").html(function(d) {return d.Fofunkcio;});
     tr.append("td").html(function(d) {return felirat(d.Fejezet);});
-d3.select(".scrollContent")
-    .style("height", function(x) {return d3.select("#csempe").node().getBoundingClientRect().height + "px";});
 
 });
 }
