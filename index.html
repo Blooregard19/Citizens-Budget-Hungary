@@ -119,6 +119,11 @@ td {
   background-color: #779126;
   color: #fff;
 }
+
+#tipusval[disabled] {
+  background-color:#ddd;
+  color: #fff;
+}
 #evval {
   display: inline-block;
 }
@@ -167,9 +172,8 @@ td {
     display: block;
 }*//
 
-html>body tbody.scrollContent {
+tbody.scrollContent {
     display: block;
-    height: 700px;
     overflow: auto;
 }
 
@@ -685,7 +689,6 @@ var fejlec = melleklet.append("thead")
     tr.append("td").html(function(d) {return d.Bevetel;});
     tr.append("td").html(function(d) {return d.Fofunkcio;});
     tr.append("td").html(function(d) {return felirat(d.Fejezet);});
-
 });
 }
 
