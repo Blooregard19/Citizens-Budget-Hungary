@@ -713,6 +713,7 @@ function highlight(d) {
   var szines = d3.select(this).attr("class")
   d3.select("#csempe").selectAll(":not(." + szines + ")")
     .transition()
+    .delay(1500) //ne azonnal, hanem 1,5 másodperccel később emelje ki a keresett csempét
     .duration(200)
     .style("opacity", 0.2);
 }
