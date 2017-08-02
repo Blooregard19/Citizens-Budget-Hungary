@@ -683,7 +683,8 @@ var fejlec = melleklet.append("thead")
         //.style("width", function(x) {return d3.select("#csempe").node().getBoundingClientRect().width * 0.95 + "px";})
   	.selectAll("tr")
   	.data(data)
-  	.enter().append("tr");
+  	.enter().append("tr")
+  	.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};});
   
   var td = tr.append("td")
     //.attr("class", function(d) {return d.data.key;})
