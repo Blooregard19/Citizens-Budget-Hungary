@@ -688,7 +688,8 @@ var fejlec = melleklet.append("thead")
   	.selectAll("tr")
   	.data(data)
   	.enter().append("tr")
-  	.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};});
+  	.attr("class", function(d) {if (d.Oszlop == 0) {return "fejezetcim";};})
+  	.attr("id", function(d) {if (d.Oszlop == 0) {return d.Fejezet;};});
   
   var td = tr.append("td")
     //.attr("class", function(d) {return d.data.key;})
