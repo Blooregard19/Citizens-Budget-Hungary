@@ -720,10 +720,10 @@ var tabla = d3.select("#oldal").append("table");
   	.data(fejezetek)
   	.enter().append("tr");
 var td = tr.append("td")
-    .attr("id", function(d) {return d.Fejezet;})
+    .attr("class", function(d) {return d.Fejezet;})
     .attr("title", function(d) { return d.Fejezet; })
-    .text(function(d) {return d.Nev;});
-    //.on("click", fejkereso );
+    .text(function(d) {return d.Nev;})
+    .on("click", fejkereso );
   
 });
 }
@@ -862,6 +862,14 @@ atmenet();
 if ((d3.select('input[name="forma"]:checked').property("value") == "ngm")) {
 hivatalos();
 }
+}
+
+function fejkereso() {
+var fejezet = d3.select(this).attr("class");
+var keresett = document.getElementById(fejezet);
+var tavolsag = keresett.offsetTop;
+document.getElementsByClassName("csempe").scrollTop = tavolsag;
+
 }
 
 function aktival() {
