@@ -722,8 +722,8 @@ var tabla = d3.select("#oldal").append("table");
 var td = tr.append("td")
     .attr("id", function(d) {return d.Fejezet;})
     .attr("title", function(d) { return d.Fejezet; })
-    .text(function(d) {return ahttnev(d.data.key, data);});
-    //.on("click", nagyit );
+    .text(function(d) {return d.Nev;});
+    //.on("click", fejkereso );
   
 });
 }
