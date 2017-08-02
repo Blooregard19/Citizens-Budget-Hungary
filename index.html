@@ -321,7 +321,7 @@ d3.selectAll('input[name="forma"]').on("change", aktival);
 	
 d3.selectAll('input[name="tipus"]').on("change", rajzol);
 
-d3.select("#year").on("change", atmenet);
+d3.select("#year").on("change", evvaltoz);
 	
 function rajzol(m) {
 
@@ -835,6 +835,15 @@ function indexOfMax(arr) {
     }
 
     return maxIndex;
+}
+
+function evvaltoz() {
+if ((d3.select('input[name="forma"]:checked').property("value") == "csempeval")) {
+atmenet();
+}
+if ((d3.select('input[name="forma"]:checked').property("value") == "ngm")) {
+hivatalos();
+}
 }
 
 function aktival() {
