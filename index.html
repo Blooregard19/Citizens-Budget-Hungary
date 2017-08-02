@@ -713,7 +713,18 @@ d3.select(fejek[1]).style("width", function (d) {return d3.select(cellak[1]).nod
 d3.select(fejek[2]).style("width", function (d) {return d3.select(cellak[2]).node().offsetWidth + "px";});
 d3.select(fejek[3]).style("width", function (d) {return d3.select(cellak[3]).node().offsetWidth + "px";});
 d3.select(fejek[4]).style("width", function (d) {return d3.select(cellak[4]).node().offsetWidth + "px";});
-	
+
+var fejezetek = data.filter(function(d) {return d.Oszlop == 0;});
+var tabla = d3.select("#oldal").append("table");
+  var tr = tabla.selectAll("tr")
+  	.data(fejezetek)
+  	.enter().append("tr");
+var td = tr.append("td")
+    .attr("id", function(d) {return d.Fejezet;})
+    .attr("title", function(d) { return d.Fejezet; })
+    .text(function(d) {return ahttnev(d.data.key, data);});
+    //.on("click", nagyit );
+  
 });
 }
 
