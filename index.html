@@ -866,10 +866,8 @@ hivatalos();
 
 function fejkereso() {
 var fejezet = d3.select(this).attr("class");
-console.log(fejezet);
 var keresett = document.getElementById(fejezet);
-var tavolsag = keresett.offsetTop;
-console.log(tavolsag);
+var tavolsag = keresett.offsetTop - 20;
 document.getElementById("lapozotabla").scrollTop = tavolsag;
 
 }
